@@ -34,5 +34,6 @@ $("ul > li").each(function(index,element){
 $().on("mousetwheel DOMMouseScroll",function(e){
 	e.preventDefault();	  // 확산 방지
 	var EI = e.orignalEvent;  // 그냥 e가 아닌 순수한 이벤트
-		                          // 이걸 사용하는 이유는 originalEvent 에서 wheeldelta 값이존재하는데 이를 사용하기 위해서 original 객체가 린요한 것이다. wheeldelta는 
+		                          // 이걸 사용하는 이유는 originalEvent 에서 wheeldelta 값이존재하는데 이를 사용하기 위해서 			        // original 객체가 린요한 것이다. wheeldelta는 +-가 존재하는데 이는 휠의 방향을 체크하기 
+		   	        // 위해서 이다. chrome 말고 파이어폭스에서는 -+가 반대로 나오게 된다. 따라서 따로 변형해줘야한다.
 })
