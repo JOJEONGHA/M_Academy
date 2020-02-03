@@ -37,3 +37,17 @@ $().on("mousetwheel DOMMouseScroll",function(e){
 		                          // 이걸 사용하는 이유는 originalEvent 에서 wheeldelta 값이존재하는데 이를 사용하기 위해서 			        // original 객체가 린요한 것이다. wheeldelta는 +-가 존재하는데 이는 휠의 방향을 체크하기 
 		   	        // 위해서 이다. chrome 말고 파이어폭스에서는 -+가 반대로 나오게 된다. 따라서 따로 변형해줘야한다.
 })
+
+offset 왼쪽상단의 좌표의 절대 좌표 점, offset().top ==> 절대 좌표의 top 위치가 나오겠지
+
+tailor brands : 로고만드는 사이트
+
+madia designer 유튜버 --> 디자인 관련 도움주는 유튜버
+
+js 변수 선언시 이중변수 사용하면 변수의 중복을 막을 수 잇다.
+>> (아래와 같이)
+ var mong = {
+	a : 3,
+	b : "wfwe"
+}
+
