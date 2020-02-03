@@ -15,3 +15,6 @@ $(".focus").on("focus,blur/focusin,focusout",function(){
 
 이때 input 영역을 누르면 focus,blur 은 동작이 발생하지 않고 focusin,focusou은 동작이 발생한다.
 이유는 span에 걸려있기에 input 부터 이벤트 버블링이 적용되어야만 span 에 도달 하는 성질 때문이다.
+
+패럴렉스 스크롤 기법 == 반응형 패럴렉스 스크롤 
+ : 스크롤시 한 페이지식 움직이는 기법
