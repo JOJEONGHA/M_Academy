@@ -18,3 +18,21 @@ $(".focus").on("focus,blur/focusin,focusout",function(){
 
 패럴렉스 스크롤 기법 == 반응형 패럴렉스 스크롤 
  : 스크롤시 한 페이지식 움직이는 기법
+
+container 역할을 하는 태그는 거의 건들이지 말자. height 속성을 추가하는등의 작업은 가급적 피하라.
+
+vh,vw는 view의 크기에 따라 가변적으로 적용되는 단위.
+
+$(window).height() 
+ : vh와 같은 역할
+
+$("ul > li").each(function(index,element){
+	// 첫번째 인자는 index, 두번째 인자는 element를 뜻하는 인자가 들어간다.
+})
+ : each는 반복문, li 를 모두 찾는다.
+
+$().on("mousetwheel DOMMouseScroll",function(e){
+	e.preventDefault();	  // 확산 방지
+	var EI = e.orignalEvent;  // 그냥 e가 아닌 순수한 이벤트
+		                          // 이걸 사용하는 이유는 originalEvent 에서 wheeldelta 값이존재하는데 이를 사용하기 위해서 original 객체가 린요한 것이다. wheeldelta는 
+})
