@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Untitled Document</title>
+	<style>
+		*{ margin: 0; padding: 0; box-sizing: border-box;}
+		ul,li,dt,dd{list-style: none;}
+		.testline{border: 1px solid red;}
+		
+		.inputset{}
+		.inputset > input{width: 100%;}
+		
+		.frmset{}
+		.frmset .frmlist{}
+		.frmset .frmlist >li {display: flex; }
+		.frmset .frmlist >li .frm_col{display: inline-block; flex: 1;}
+		
+		.frmset .frmlist >li:nth-child(2) .frm_col:nth-child(2){flex : 2;}
+		.frmset .frmlist >li .frm_col .dlist{display: table; width: 100%; height: 100%;}
+		.frmset .frmlist >li .frm_col .dlist > dt,dd{display: table-cell; vertical-align: middle;padding: 5px;}
+		.frmset .frmlist >li .frm_col .dlist > dt{width: 90px; background: #aaa;}
+		.frmset .frmlist >li .frm_col .dlist > dd{}
+	</style>
+</head>
+
+	<div class="frmset">
+		<ul class="frmlist">
+			<li>
+				<div class="frm_col">
+					<dl class="dlist">
+						<dt>title<br>title</dt>
+						<dd>contents</dd>
+					</dl>
+				</div>
+				<div class="frm_col">
+					<dl class="dlist">
+						<dt>title</dt>
+						<dd>contents</dd>
+					</dl>
+				</div>
+				<div class="frm_col">
+					<dl class="dlist">
+						<dt>title</dt>
+						<dd>contents</dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<div class="frm_col">
+					<dl class="dlist">
+						<dt>title<br>title</dt>
+						<dd>
+							<span class = "inputset">
+								<input type="text">
+							</span>
+						</dd>
+					</dl>
+				</div>
+				<div class="frm_col">
+					<dl class="dlist">
+						<dt>title</dt>
+						<dd>
+							<span class	= "inputset">
+								<input type="text">
+							</span>
+						</dd>
+					</dl>
+				</div>
+			</li>
+		</ul>	
+	</div>
+<body>
+</body>
+</html>

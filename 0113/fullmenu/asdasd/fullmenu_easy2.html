@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+.container {min-width:1280px}
+header {position:relative; background:#000;}
+header .header_inner {position:relative; height:80px; width: 1280px; margin:0 auto}
+header .header_inner .logo {position:absolute; top:50%; left:50px; margin:-17px 0 0 0; z-index: 10}
+header .header_inner nav {position:relative}
+header .header_inner nav .list_gnb {overflow:hidden; position:absolute; top:0; right:50px; z-index: 10;
+	padding-top:40px}
+header .header_inner nav .list_gnb > li {float:left;; width:150px}
+header .header_inner nav .list_gnb > li + li {margin-left:50px}
+header .header_inner nav .list_gnb > li > a {position:relative; display: inline-block; height:40px; color: #fff}
+/*
+header .header_inner nav .list_gnb > li.on > a:before {content: ""; display:block; border-bottom:1px solid #fff;
+	position:absolute; bottom:0; left: 0; width: 100%}
+*/
+
+header .header_inner nav .list_gnb > li > a:hover {color:#f2f2f2}
+header .header_inner nav .dp2 {margin-top:30px; overflow: hidden; visibility: hidden; height:0; opacity:0;
+	transition:opacity .5s ease}
+header .header_inner nav .dp2.open {opacity:1; }
+header .header_inner nav .dp2 > li {line-height: 1.5; padding:5px 0}
+header .header_inner nav .dp2 > li > a {color:#fff; font-size:.85em }
+header .header_inner nav .dp2 > li > a:hover { color:#d9d9d9}
+
+header .gnb_bg {background:#343746; height:0; position:absolute; top:80px; left:0; right:0; height: 0}
+
+/* 태블릿 + 모바일 */
+@media screen and (max-width: 1024px) {
+	header .header_inner {border-bottom:none}
+	header .header_inner nav {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background: #2a292e;
+	}
+	header .header_inner nav .list_gnb {top:0; left:0}
+	header .header_inner nav .list_gnb > li {float:none}
+	header .header_inner nav .list_gnb > li > a {color:#fff}
+
+	header .header_inner,
+	.gnb_inner {width:100%}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<header>
+	<div class="header_inner">
+		<div class="logo">
+			<h1><img src="img/ubilogo.png" alt="" /></h1>
+		</div>
+		<nav>
+			<ul class="list_gnb">
+				<li><a href="#none">솔루션소개</a>
+					<ul class="dp2">
+						<li><a href="">스마트고객관리</a></li>
+						<li><a href="">스마트회원관리</a></li>
+						<li><a href="">고객매출관리</a></li>
+						<li><a href="">고객관리</a></li>
+						<li><a href="">프랜차이즈관리</a></li>
+						<li><a href="">판매재고관리</a></li>
+					</ul>
+				</li>
+				<li class="on"><a href="#none">솔루션구매</a>
+					<ul class="dp2">
+						<li><a href="">솔루션</a></li>
+						<li><a href="">하드웨어</a></li>
+						<li><a href="">개인결제</a></li>
+					</ul>
+				</li>
+				<li><a href="#none">고객센터</a>
+					<ul class="dp2">
+						<li><a href="">공지사</a></li>
+						<li><a href="">업그레이드소</a></li>
+						<li><a href="">고객이용후기</a></li>
+						<li><a href="">자주하는질문</a></li>
+						<li><a href="">1:1문의</a></li>
+						<li><a href="">견적문의</a></li>
+						<li><a href="">아이디/비밀번호찾기</a></li>
+					</ul>
+				</li>
+				<li><a href="#none">회사소개</a>
+					<ul class="dp2">
+						<li><a href="">회사소개</a></li>
+						<li><a href="">주요고객사</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="gnb_bg"></div>
+</header>
+<div class="wrap">
+	 내용 입력 요망
+</div>
+<script>
+$(function() {
+
+	pshGlobalvar = {
+		gnbbg : $('header .gnb_bg'),
+		navDp2 : $('header .header_inner nav .dp2'),
+		fstLiwh : $('nav .list_gnb > li:first').outerWidth(),
+		fstLiht : $('nav .list_gnb > li:first > a').outerHeight(),
+		fstdp2Liht : $('nav .list_gnb > li:first .dp2 > li:first').outerHeight(),
+		fstdp2LihtNum : 35,
+		winWH : $(window).width(),
+		tbsize : 1024,
+		mbsize : 768
+	}
+
+	var gnbhover = function() {
+		var s1 = $('.list_gnb > li').eq(0).find('.dp2 > li').length;
+		var s2 = $('.list_gnb > li').eq(1).find('.dp2 > li').length;
+		var s3 = $('.list_gnb > li').eq(2).find('.dp2 > li').length;
+		var s4 = $('.list_gnb > li').eq(3).find('.dp2 > li').length;
+		var maxS = Math.max(s1, s2, s3, s4);
+
+		pshGlobalvar.navDp2.css('visibility', 'visible').stop().animate(
+			{"height" : pshGlobalvar.fstdp2Liht * maxS}
+		).addClass("open");
+
+		pshGlobalvar.gnbbg.stop().animate(
+			{
+				"height" : (pshGlobalvar.fstdp2LihtNum * maxS) + 50
+			}
+		);
+	}
+
+	var gnbleave = function() {
+		pshGlobalvar.navDp2.stop().animate(
+			{"height" : "0"}, {
+				complete : function() {
+					pshGlobalvar.navDp2.css('visibility', 'hidden')
+				}
+			}
+		).removeClass("open");
+
+		pshGlobalvar.gnbbg.stop().animate(
+			{
+				"height" : "0"
+			}
+		);
+	}
+
+
+	$('nav .list_gnb').hover(
+		function() {
+			gnbhover();
+		},
+		function() {
+			gnbleave();
+		}
+	)
+
+	function navhover() {
+
+		if(pshGlobalvar.winWH > pshGlobalvar.tbsize) {
+
+		} else {
+
+			$('nav .list_gnb > li > a').off('hover');
+			$('nav .list_gnb').off('hover');
+		}
+	}
+
+	navhover();
+
+	$(window).resize(function() {
+		pshGlobalvar.winWH = $(window).width();
+
+		navhover();
+	});
+});
+</script>
+</div>
+</body>
+</html>

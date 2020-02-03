@@ -1,0 +1,17 @@
+focus, blur - 초점이 왔을 때 나갔을 때
+focusin, focusout - 위와 같다
+차이점은?? 
+ focusin, focusout
+ - focus 대상이 아닌 요소에 포커스를 줄때
+ - 이벤트 버블링 발생
+
+<span class = "focus">
+	<input type = "text"></input>
+</span>
+
+$(".focus").on("focus,blur/focusin,focusout",function(){
+	동작
+})
+
+이때 input 영역을 누르면 focus,blur 은 동작이 발생하지 않고 focusin,focusou은 동작이 발생한다.
+이유는 span에 걸려있기에 input 부터 이벤트 버블링이 적용되어야만 span 에 도달 하는 성질 때문이다.

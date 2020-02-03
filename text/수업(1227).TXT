@@ -1,0 +1,68 @@
+input이 어려운 이유는 계속확장된다. 특정상화에 입력안되게 막는다는가 등등...
+
+radio 태그
+ input id, label for 통해 각각을 묶고 전체를 name으로 묶는다.
+
+웹표준에 구조와 표현의 분리, css는 따로 파일로 분리해서 관리함을 권장한다.
+그러나 input의 경우는 style 을 태그에 다가 적는게 편하다.
+
+placeholder  입력전에 원하는 메시지를 띄운다.
+input의 경우 readonly 는 수정못하게 읽게만 하는 경우, select 의 경우는 disabled
+disabled는 css 에 select:disabled{}
+readonly는 css 에 input:read-only{}
+
+Q. style width  정도만 적어주는가?? input 태그 직접 style에?
+
+ui컨퍼넌트 : input, 아이콘 등등... 작은 곳에서 큰 곳으로 만든다.
+
+<span>
+    <input type="text">
+  </span>
+---> 가장작은 ui 컴포넌트로 생각해도 되겠지. 모든 input은 이런형태를 갖고 있을수 있지. input,checkbox radio 등 전부 span 태그로 감싸주자,. 방탄앱의 개념,
+* div자체가 block 이기 때문에 span 으로 묶는게 유리하다. 이어지는게 많기 때문에, 이메일 주소 연락처 등등...
+왜그럴까???왜 div 할때 제약조건이 생길까..??
+
+퍼블리싱 공통 , 공통클레스 : inputset
+
+.inputset 이라는 span이 묶고있는 ui 컴포넌트 내부에 있는 input,select
+.inputset{display : inline-block; border : 1px solid #000; background : #fff;}
+.inputset input[type = "text"],.inputset select{border : none; background : none;}
+요까지가 퍼블리싱 ui 컴포넌트 제작과정이다.
+
+<span class="inputset money">
+    <input type="text" />
+    <span class = "won">원</span>
+  </span>
+.inputset.money{}
+.inputset.money input{}
+.inputset.money .won{}
+>>> 확장된 input 은 이렇게 제어한다.
+
+table-cell을 통해 원과 input 을 구별한 꽉찬 화면을 구현하였다.****
+.inputset.money{display : table; width : 100%;}
+.inputset.money input{text-align : right; display:table-cell;width : 100%;}
+.inputset.money .won{display:table-cell; width : 20px;}
+<span class="inputset money">
+    <input type="text" />
+    <span class = "won">원</span>
+  </span>
+
+line-height : 1   = = = = = = !!!
+
+appearance : none; -webkit-appearance: none; 기존에 있던 check 박스등 속성의 모양을 없앤다. 그러나 explorer에서 안먹혀!!
+
+id 와 label 을 연결하면 checkbox 영역이아닌 label 의 텍스트를 선택해도 체크가 된다.
+
+.inputset.ckbox{border : none; }
+.inputset.ckbox input[type= "checkbox"]{vertical-align : middle; display : none;}
+.inputset.ckbox input[type= "checkbox"]:checked{background : #000;}
+.inputset.ckbox label{vertical-align : middle;}
+.inputset.ckbox input[type= "checkbox"] + label::before{content: "";display : inline-block; width : 20px; height : 20px; background : #000; vertical-align : text-bottom;}
+.inputset.ckbox input[type= "checkbox"]:checked + label::before{background : red;}
+-- 버튼 제작!!
+
+파일 비밀번호 : hope
+
+fixed 시키면 height 100%가 먹힌다. 화면에 무조건 고정이므로!!
+
+깊이있는 마크업을 현재는 필요없지만 사용해야하는 경우가 생길수 있기 때문에 + 이든 > 이든 정확하게 써주는게 유지보수 측면에서 유리하다

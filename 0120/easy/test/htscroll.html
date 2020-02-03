@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+body {margin:0; padding:0}
+.hscroll_outer {position:relative; width:100%; overflow:hidden }
+.hscroll {position:relative; top:0; width:100%; }
+.hscroll .hscbox { }
+.hscroll .hscbox:nth-child(1) {background:#f00}
+.hscroll .hscbox:nth-child(2) {background:#09F}
+.hscroll .hscbox:nth-child(3) {background:#999}
+.hscroll_outer .ctrl {position:absolute; top:0; right:0; list-style:none; z-index:10}
+
+.mneu {position:absolute; top:0; left:0}
+.mneu li { }
+
+.bgb {position:fixed; top:0; left:0; width:100%; background:#000; visibility:hidden; opacity:0}
+
+</style>
+</head>
+
+<body>
+<div class="hscroll_outer">
+	<ul class="ctrl">
+    	<li><a href="#none">link</a></li>
+        <li><a href="#none">link</a></li>
+        <li><a href="#none">link</a></li>
+    </ul>
+    <div class="hscroll">
+        <div class="hscbox">
+            111
+        </div>
+        <div class="hscbox">
+            222
+        </div>
+        <div class="hscbox">
+            333
+        </div>    
+    </div>
+
+    <ul class="mneu">
+        <li><a href="#none">링크1</a></li>
+        <li><a href="#none">링크1</a></li>
+        <li><a href="#none">링크1</a></li>
+    </ul>
+    <div class="bgb">
+    	<a href="#none">닫기</a>
+    </div>    
+    
+</div>
+
+
+
+<script>
+var wdHT = $(window).outerHeight();
+var distance = wdHT
+var count = 0;
+
+
+function hscrollHeight() { 
+	$('.hscroll_outer').css('height',wdHT);
+	$('.hscroll').css('height',wdHT);
+	
+	$('.bgb').css('height',wdHT);
+}
+hscrollHeight();
+$(window).on("resize", hscrollHeight);
+
+$(function(){
+	$('.hscroll .hscbox').each(function(index, element){
+		$(element).css('height',wdHT);
+	});
+	
+	$('.hscroll_outer .ctrl > li > a').on("click", function(event){
+		event.preventDefault();
+		var _this = $(this)	;
+		var _thispt = $(this).parent();
+		var _target = $(event).target;
+		var _index = _thispt.index(_target);
+		
+		count = _index;
+		var scrollHT = 	distance * count;
+		//console.log(count * distance);
+		
+		$('.hscroll_outer .hscroll').animate({top : -scrollHT}, 500);
+
+		/** 
+			li 0번째는 $('.hscroll_outer .hscroll')의 top : 0
+			li 1번째는 $('.hscroll_outer .hscroll')의 top : -(윈도우 헤이트값)
+			li 2번째는 $('.hscroll_outer .hscroll')의 top : -(윈도우 헤이트값 * 2)							
+		**/
+	});
+	
+	$('.mneu > li > a').on("click", function(event){
+		var _this = $(this);
+		var _thispt = _this.parent();
+		var _target = $(event).target;
+		_index = _thispt.index(_target);
+		console.log(_thispt.index());
+		if(_thispt.index() == 2) { 
+			$('.bgb').css({"visibility" : "visible","opacity" : ".5"});
+		}
+	})
+});
+
+
+
+
+</script>
+</body>
+</html>

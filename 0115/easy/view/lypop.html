@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/lypop.js" type="text/javascript"></script>
+<style type="text/css">
+#lypop {position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; display:none}
+#lypop .bg {width:100%; height:100%; background:#000; opacity: 0; -ms-filter:alpha(opacity=0); /* IE8 전용 */ filter:alpha(opacity=0); /*IE7 전용 */}
+.lypop_containor {position:absolute; top:50%; left:50%; width:500px; height:500px; margin:-250px 0 0 -250px; border:1px solid #f00; background:#fff; z-index:100}
+.lypop_containor .close {display:block; position:absolute;}
+</style>
+</head>
+
+<body>
+<a href="#lypop" class="lypop">테스트</a>
+<div id="lypop">
+	<div class="lypop_containor">
+    	<button type="button" class="close">닫기</button>
+    	<div class="lypop_head">
+        	제목
+        </div>
+        <div class="lypop_cont">
+        	내용asdasdasdasdasdasdasㅇㅁㄴㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ
+        </div>        
+    </div>	
+    <div class="bg"></div>
+</div>
+<script>
+$(function() { 
+
+/* 
+	bg : 백그라운드 유무 true, false
+	devaultopen : 초기에 레이어팝업 우선 활성화 여부 true, false
+	closebtn : 닫기버튼 유무 true, false
+	width : 팝업 크기 width
+	height : 팝업 크기 height
+	bgopacitydensity : bg 투명도 뎁스
+	bgopacitydelaytime : bg 투명도 시간 기본 1000 (1초)
+	popmotion : 컨텐츠 모션 형태 scale : 스케일 크기 모션 trnspop : 위에서 아래로 나오는 모션	
+*/
+
+	$('.lypop').lypop({
+		bg : true,
+		defaultopen : false,
+		closebtn : true,
+		width: 1000,
+		height: 500,
+		bgopacitydensity : 2, // 투명도 조절 0 ~ 9;
+		bgopacitydelaytime : 1000, // 1000 : 1초
+		//popmotion : scale, trnspop
+		popmotion : transtop
+	});
+});
+</script>
+</body>
+</html>

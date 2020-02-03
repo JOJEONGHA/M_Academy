@@ -1,0 +1,39 @@
+http://k-desi9n.kr/edu/register/??
+1.ps에서 벡터코드 따는방법벡터는? 화면이 늘어나도 깨지지 않는다.
+http://jsbin.com/?html,output?
+2. 지난주에 라이언 얼굴 움직이는거 했다.
+
+3. 네온사인 효과 keyframe 에 text shadow 속성의 변화 만들었다.
+
+mydevice.io
+기기해상도 확인 317px
+근데 이게 실제 화면에 점이 이것밖에 없다는 말이 안된다.
+화면해상도라고 고밀도 어쩌고가 있다.
+
+2배크게 만들어서 css를 이용하여 반으로 줄인다.
+해상도 때문에. 두배로 키운 크기의 아이콘을 작게 
+모바일의 경우에만 해당
+
+포토샵 마키툴 크기 조정하는방법
+
+container : 크리에티브 마크업, 임의로 이름 만들어서 display 속성을 주어서 사용한다.
+header : 시메틱 마크업
+
+모바일은 resolution 72 포토샵에
+이거 조절 못하면 성능상 속도가 매우 느릴 수 있다. 
+
+ctrl + shift+ s = png 저장 :  포토샵
+
+왜 940px?
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+메타태그로 모바일 디바이스라고 말해줘야지 화면 크기가 설정이 된다.
+
+이미지 seperate 기법, background-position,size 를 이용해서 들고온다.
+
+position absolute 상태에 top bottom 을 각각 끝가지 공간을 붙이고 margin auto ,를 통하여 중앙정렬해준다.!!!
+
+오늘한거 : 
+0. 라이언 움직이는거 지난시간에 했었다.
+1. 로딩바 2가지 종류 만들어본거
+2. 이미지 두개 붙여서 아이콘 backgroud-size,position 불러와서.
+                 

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+.pshscroll_containor { }
+.pshscroll_wrapper { }
+</style>
+
+</head>
+
+<body>
+
+
+<div class="pshscroll_containor">
+	<div class="pshscroll_wrapper">
+    </div>
+</div>
+
+
+<script>
+
+$(function(){
+
+	'use strict';	
+	var browser = {
+		mobile: /android|webos|iphone|ipad|ipod|blackberry/i.test(navigator.userAgent)
+	};
+	
+	$(document).on("touchstart", function(e) { 
+		//console.log("오리지널이벤트 == ", e.originalEvent.touches);
+		var touch = e.originalEvent.touches && e.originalEvent.touches[0] || e;
+		var originalTouch = {
+			"pageX": touch.pageX,
+			"pageY": touch.pageY
+		};
+		
+		var originalScroll = {
+			"left": c.scrollLeft(),
+			"top": c.scrollTop()
+		};			
+		console.log("originalTouch ==", originalTouch.pageX);
+		
+		$(document).on("touchmove", function() { 
+			//console.log("originalTouch ==", originalTouch.pageX);	
+			
+		})
+	})
+
+})
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

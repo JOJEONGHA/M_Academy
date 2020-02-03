@@ -1,0 +1,22 @@
+container{display: block;}
+
+.container {min-width:1280px}
+header {position:relative; background:#000;}
+header .header_inner {position:relative; height:80px; width: 1280px; margin:0 auto}
+header .header_inner .logo {position:absolute; top:50%; left:50px; margin:-17px 0 0 0; z-index: 10}
+header .header_inner nav {position:relative}
+header .header_inner nav .list_gnb {overflow:hidden; position:absolute; top:0; right:50px; z-index: 10;
+	padding-top:40px}
+header .header_inner nav .list_gnb > li {float:left;; width:150px}
+header .header_inner nav .list_gnb > li + li {margin-left:50px}
+header .header_inner nav .list_gnb > li > a {position:relative; display: inline-block; height:40px; color: #fff}
+
+header .header_inner nav .list_gnb > li > a:hover {color:#f2f2f2}
+header .header_inner nav .dp2 {margin-top:30px; overflow: hidden; visibility: hidden; height:0; opacity:0;
+	transition:opacity .5s ease}
+header .header_inner nav .dp2.open {opacity:1; }
+header .header_inner nav .dp2 > li {line-height: 1.5; padding:5px 0}
+header .header_inner nav .dp2 > li > a {color:#fff; font-size:.85em }
+header .header_inner nav .dp2 > li > a:hover { color:#d9d9d9}
+
+header .gnb_bg {background:#343746; height:0; position:absolute; top:80px; left:0; right:0; height: 0}

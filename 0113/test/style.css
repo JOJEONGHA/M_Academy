@@ -1,0 +1,3 @@
+aside{position: fixed; width: calc(100vw - 60px); height: 100%; 
+	background: #000; left: calc(100vw/-1 + 60px); transition: all .5s linear;}
+aside.on{left : 0;}

@@ -1,0 +1,107 @@
+container{
+    display: block;
+    position: relative;
+    float: left;
+    width: 394px;
+    animation: facemove 2s infinite;
+}
+
+.face {
+    width: 371px;
+    height: 341px;
+    border: 11px solid #0c131b;
+    background-color: #f7ac1d;
+    border-radius: 5000px;
+    position: relative;   
+}
+
+.eyeset {
+    position: absolute;
+    left: 63px;
+    top: 106px;
+}
+
+.eye {
+    height: 65px;
+    width: 80px;
+    position: absolute;
+}
+
+.eye.left {
+    left: 0;
+}
+
+.eye.right {
+    left: 162px;
+}
+
+.eye .pupil {
+    height: 16px;
+    width: 80px;
+    background-color: #090504;
+    border-radius: 5000px;
+}
+
+.eye .brow {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    border-radius: 50px;
+    background-color: #090504;
+}
+
+.eye.left .brow {
+    bottom: 0;
+    left: 33px;
+}
+
+.eye.right .brow {
+    bottom: 0;
+    right: 33px;
+}
+
+.nose {
+    color: brown;
+    height: 72px;
+    width: 121px;
+    background: url(img/nose.png) no-repeat 0 0;
+    position: absolute;
+    left: 124px;
+    bottom: 89px;
+}
+
+.ears {
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.ear {
+    top: 0;
+    position: absolute;
+    height: 84px;
+    width: 72px;
+    border-radius: 5000px;
+    background-color: #f7ac1d;
+    border: 11px solid #0c131b;
+}
+
+.ears .left {
+    left: 25px;
+    transform: rotate(-26.1deg);
+    z-index: -1;
+}
+
+.ears .right {
+    right: 25px;
+    transform: rotate(26.1deg);
+    z-index: -1;
+}
+
+@keyframes facemove{
+/*    0%{transform: rotate(0deg);}*/
+    0%{transform: rotate(20deg);}
+    50%{transform: rotate(-20deg);}
+    100%{transform: rotate(20deg);}
+}
+

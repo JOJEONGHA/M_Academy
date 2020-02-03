@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<link type="text/css" rel="stylesheet" href="css/input.css" />
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		$(function() { 
+			var resultChk = function() { 
+				var rateArray = ["2%", "25%", "50%", "75%", "100%"];
+				var thisIndex = $('.rdo_pos .inputset').find("input[type='radio']:checked").parents(".inputset").index();
+				$('.scorebar .scorebar_inner').css('width', rateArray[thisIndex]); 
+
+				$('.rdo_pos .inputset').find("input[type='radio']").on("click", function() { 
+						var _this = $(this);
+						for(var i = 0; i < $('.rdo_pos .inputset').length; i++) { 
+							console.log(i);
+							if(_this.val() == i + 1) { 
+								$('.scorebar .scorebar_inner').css('width', rateArray[i]); 
+							}
+						}
+
+				});
+			};	
+			resultChk();
+		})	
+		
+	</script>
+	<style type="text/css">
+		.scoreset {position:relative}
+		.scoreset .scorebar_outer {position: relative; width:600px; display:inline-block; vertical-align: middle}
+		.scoreset .rdo_pos {margin:10px 0 0 0}
+		.scoreset .rdo_pos .inputset.rdo + .inputset.rdo {margin-left:100px}
+		.scoreset .txt_fst {margin-right:5px}
+		.scoreset .txt_lst {margin-left:5px}
+		.scoreset .txt_fst,
+		.scoreset .txt_lst {vertical-align: middle; display: inline-block}
+		.scorebar {position:relative; width: 600px; height: 40px; background: #f2f2f2; display: inline-block;
+		overflow:hidden; border-radius: 25px; vertical-align: middle}
+		.scorebar .scorebar_inner {position:absolute; top:0; left:0; width:0; height: 40px; background: #9194cd;
+		background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+		background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+		background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+		-webkit-background-size: 40px 40px;
+		background-size: 40px 40px;
+			
+			
+		transition: all .5s ease}
+	</style>
+</head>
+
+<body>
+	<div class="scoreset">
+		<span class="txt_fst">약간 힘들지만 견딜만 하다</span>
+		<div class="scorebar_outer">
+			<div class="scorebar">
+				<div class="scorebar_inner">	
+
+				</div>
+			</div>
+			<div class="rdo_pos">
+				<span class="inputset rdo">
+					<label for="result11">
+						<input type="radio" id="result11" name="result1" value="1" />
+						1
+					</label>
+				</span>
+				<span class="inputset rdo">
+					<label for="result12">
+						<input type="radio" id="result12" name="result1" value="2" />
+						2
+					</label>
+				</span>
+				<span class="inputset rdo">
+					<label for="result13">
+						<input type="radio" id="result13" name="result1" value="3" />
+						3
+					</label>
+				</span>
+				<span class="inputset rdo">
+					<label for="result14">
+						<input type="radio" id="result14" name="result1" value="4" />
+						4
+					</label>
+				</span>
+				<span class="inputset rdo">
+					<label for="result15">
+						<input type="radio" id="result15" name="result1" value="5" />
+						5
+					</label>
+				</span>							
+			</div>							
+		</div>	
+		<span class="txt_lst">매우 힘들어 견딜 수 없다.</span>
+	</div>	
+</body>
+</html>

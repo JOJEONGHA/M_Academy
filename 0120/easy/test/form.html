@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+
+.inputset input[type="checkbox"] {appearance:none; -webkit-appearance:none; -moz-appearance:none; background:url(img/sp_btn.png) no-repeat 0 -28px; width:20px; height:20px}
+.inputset input[type="checkbox"]:checked { background-position:0 0}
+
+.inputset input,
+.inputset select,
+.inputset label {vertical-align:middle}
+
+</style>
+</head>
+
+<body>
+
+<iframe src="mbanner.html" width="1000px" height="20px" scrolling="no"></iframe>
+
+<span class="inputset">
+	<input type="checkbox" name="checkall" id="checkall" /><label for="">라벨</label>
+    <input type="checkbox" name="cname" id="c1" /><label for="">라벨</label>
+    <input type="checkbox" name="cname" id="c2" /><label for="">라벨</label>
+    <input type="checkbox" name="cname" id="c3" /><label for="">라벨</label>
+    <input type="checkbox" name="cname" id="c4" /><label for="">라벨</label>
+</span>
+
+
+<span class="inputset">
+    <select id="bb">
+        <option>111</option>
+        <option>222</option>
+    </select>
+</span>
+
+
+
+<script>
+
+/*
+$('#aa').on("change", function(){
+	alert(1);	
+})
+
+$("#bb").on("change", function(){
+	alert(1);	
+})
+*/
+
+
+$(function(){
+	
+	$("#checkall").on("change", function(){
+		var chk = $(this).is(":checked");
+		console.log(chk);
+		if(chk) {
+			$("input:checkbox[name = 'cname']").prop('checked', true);
+		}else {
+			$("input:checkbox[name = 'cname']").prop('checked', false);
+		}
+	});
+	
+	
+	//$('input[type="checkbox"]').is("checked") == true;
+	//var val = $(this).val();
+})
+
+
+</script>
+
+
+</body>
+</html>

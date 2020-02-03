@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="script/jquery.js"></script>
+<script src="script/banjs.js"></script>
+<style type="text/css">
+.wrap {background: #1b1b1b; height: 300px}
+.partner_outer {position:relative; top: 74px; height: 152px; overflow: hidden}
+.partner_outer .titset { }
+.partner_outer .titset .hd3 {font-family: 'NanumBold'; font-size: 1.875em; color: #fff}
+.partner_outer .titset .stxt {font-size:1.375em; color: #f48502}
+
+.partner_outer .ctr {overflow:hidden; display:inline-block; position:absolute; left:0; bottom:0}
+.partner_outer .ctr > a { position: relative; float:left; display: block; width: 46px; height: 46px; border:1px solid #b9b9b9; border-right:none; text-indent:-9999px}
+.partner_outer .ctr > a:before {content:""; display:block; background: url(image/partner_ctrset.png) no-repeat 0 0;
+background-position:0 0; background-size:auto 17px; position:absolute; top:0; left: 0}
+.partner_outer .ctr > a:last-child {border-right:1px solid #b9b9b9}
+.partner_outer .ctr > a>span {display:block; text-indent:-9999px}
+.partner_outer .ctr .prev:before {width:10px; height: 17px; background-position: 0 0; top:50%; left: 50%; margin: -8px 0 0 -5px}
+.partner_outer .ctr .play:before {width:11px; height: 17px; background-position: -11px 0; top:50%; left: 50%; margin: -8px 0 0 -7px}
+.partner_outer .ctr .play.stop:before {background-position:-22px 0}
+.partner_outer .ctr .next:before {width:10px; height: 17px; background-position: -33px 0; top:50%; left: 50%; margin: -8px 0 0 -5px }
+
+.partner_outer .ctr > a:hover:before {opacity:.3}
+
+.partner_outer .list_mban { position: absolute; right: 0; top: 0; overflow: hidden; width: 1040px; height: 152px}
+.partner_outer .list_mban .list_slide {position: relative; width:1040px; height: 152px; overflow: hidden;
+}
+.partner_outer .list_mban .list_slide > ul {position:absolute; top:0; overflow:hidden; margin:-10px 0 0 -7px; white-space: nowrap; left:-1040px}
+.partner_outer .list_mban .list_slide > ul > li {display: inline-block; margin: 0; overflow: hidden; width: 1040px}
+.partner_outer .list_mban .list_slide > ul > li > .simg {
+display: block; width: 201px; height: 71px; overflow: hidden; border: 1px solid #b9b9b9; float: left; margin: 10px 0 0 7px}
+.partner_outer .list_mban .list_slide > ul > li > .simg > img {width:100%}	
+</style>	
+</head>
+
+<body>
+<div class="wrap">
+<div class="partner_outer">
+	<div class="titset">
+		<h3 class="hd3">주요고객사</h3>
+		<span class="stxt">Partners</span>
+	</div>
+	<div class="ctr">
+		<a href="#none" class="prev" id="prev"><span>이전보기</span></a>
+		<a href="#none" class="play"><span>자동보기</span></a>
+		<a href="#none" class="next" id="next"><span>다음보기</span></a>
+	</div>
+	<div class="list_mban">
+		<div class="list_slide">
+			<ul>
+				<li>
+					<div class="simg"><img src="image/main_banner30.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner29.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner28.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner27.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner26.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner25.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner24.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner23.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner22.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner21.png" alt="" /></div>
+				</li>
+				<li>
+					<div class="simg"><img src="image/main_banner20.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner19.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner18.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner17.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner16.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner15.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner14.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner13.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner12.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner11.png" alt="" /></div>
+				</li>
+				<li>
+					<div class="simg"><img src="image/main_banner10.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner09.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner08.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner07.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner06.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner05.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner04.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner03.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner02.png" alt="" /></div>
+					<div class="simg"><img src="image/main_banner01.png" alt="" /></div>
+				</li>							
+			</ul>
+		</div>
+	</div>
+</div>	
+</div>	
+<script>
+listmbanFunc();	
+</script>	
+</body>
+</html>

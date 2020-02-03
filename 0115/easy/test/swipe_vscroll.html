@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/swiper.js"></script>
+<link type="text/css" rel="stylesheet" href="css/swiper2.css" />
+<style type="text/css">
+.infobox {height:50px; overflow:hidden; border:1px solid #f00; display:block}
+.infobox.on {height:200px}
+</style>
+
+</head>
+
+<body>
+
+<a href="#none" class="infobox">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />
+                내용입니다.<br />                
+            </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+</a>
+
+
+<script> 
+$(function(e) {
+ // true  : 스크롤X
+ // false : 스크롤O
+ var isClosed = true;
+ var swiper = null;
+
+ $('.infobox').on("click", function(){
+  
+  if($(this).hasClass("on")) {
+   $(this).removeClass("on");
+   isClosed = true;
+  } 
+  else { 
+   $(this).addClass("on");
+   isClosed = false;
+  }
+   
+  // 접었을때
+  if (isClosed) {
+   swiper.destroy();
+  }
+  // 펼쳤을때
+  else {
+   swiper = new Swiper('.swiper-container',  { 
+    scrollbar: '.swiper-scrollbar',
+    scrollbarHide: false,
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    mousewheelControl: true,
+    freeMode: true,
+    onlyExternal : false
+   });
+  }
+ });
+})
+</script> 
+
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<script src="script/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">	
+	.slidetoggle {width:300px; height:200px; border:1px solid #f00; overflow: auto; padding:10px}
+	.slidetoggle.on {overflow:hidden}
+
+	.btn { }
+	
+</style>
+</head>
+
+<body>
+
+<button type="button" class="btn">기능버튼</button>
+	
+<div class="slidetoggle">
+
+	<div class="content">
+		내용입니다.<br />		
+		내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />
+			내용입니다.<br />		
+		내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />
+		내용입니다.<br />		
+		내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />
+		내용입니다.<br />		
+		내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />
+		내용입니다.<br />		
+		내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />내용입니다.<br />
+	</div>
+
+</div>
+
+<script>
+$(function() { 
+	$('.btn').on("click", function() { 
+		var _this = $(this);
+		if($('.slidetoggle').hasClass("on")) { 
+			$('.slidetoggle').removeClass("on");
+			$('.slidetoggle').css({"height" : "200px"});
+		} else { 
+			$('.slidetoggle').addClass("on");
+			$('.slidetoggle').css("height", $(".slidetoggle .content").height() + 50);
+		}
+	});
+})	
+</script>
+</body>
+</html>

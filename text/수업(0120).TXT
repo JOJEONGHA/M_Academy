@@ -1,0 +1,49 @@
+기명함수 
+
+onclick 으로 함수 명 직접 태그에 넣어 줄때 함수 명을 써주는데 이때 써주는 함수는 이름을 갖는다. 이렇게 이름을 갖도록 함수를 정의하는 것을 기명함수.
+
+<button class="click" onClick="_On(this)">Button</button>
+태그에 들어가는 this는 현재 태그의 클래스 객체를 반환한다.
+
+버블링
+href 아무것도 안넣으면 on("click",function())에 둘다 안먹힌다.
+
+<이벤트 확산>
+e. preventDefault();
+- href속성에 아무것도 존재하지 않을 때 이벤트가 확산되는데 그것을 
+    막는다. 또는 <a href = "javascript:void(0)"></a>
+
+<이벤트 전파 == 이벤트 버블링>
+$("ul li a").on("click",function(){
+	alert(1);
+    })
+    $("ul li").on("click",function(){
+ 	alert(2);
+    })
+a태그만 클릭했는데 위의동작까지 다 타고 동작된다. 이를 버블링이라고 한다. 이를 막으려면
+event.stopPropagation()
+단!! 이때 event 인자가 function 에 존재해야하고 2개이상의 인자를 받는 함수의 경우 가장뒤에 event 인자를 사용해주고 onclick에는 event 인자를 제외하고 한다.
+    
+제이쿼리 애니메이션, 유동적인 메뉴에서 크기를 계산한 애니메이션이 발생하게 하려면 필요하다.
+
+section을 article 로 싸야한다.
+
+w3c 통합검사기
+container로 임의의 태그는 맨 큰페이지만 싸더라
+
+id는 input label 이런거에 사용하는거 빼고 가급적 사용하지말자
+
+clear both 를 after로 넣ㄴ는방법도 있더라. 또는 부모태그에 overflow : hidden 이 들어가면된다.
+
+공통된 변수!!
+pshFlow = {
+	gnbbg : $("header .gnb_bg"),
+	wojfw :  $("header .gnb_bg")
+}
+사용시에는 pshFlow.gnbbg 이렇게 사용하면된다. 그리고 공통변수 중괄호 안에는 세미콜론을 사용하면 안된다.
+
+jquery 애니메이션에서는 method 끼리의 연결에 체인방식으로 stop()을 연결 시켜준다. 그러면 연속적으로 여러번클릭했을때 동작이 버퍼에 쌓여서 계속 실행되는걸 방지해준다.
+
+.stop().animate({"height":0});
+---------------------------------------------------
+Q. href 안넣는거 이해안된다.

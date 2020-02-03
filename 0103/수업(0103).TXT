@@ -1,0 +1,25 @@
+inputset 겉의 속성을 세부속성을 위해서 수정해선 안된다.
+
+복수 클레스를 지정해주면 더욱더 우선순위가 높아진다
+ex ) .test < .test.ty1 < .test.ty1.ty2
+
+div 중앙정렬
+
+.header_inner nav .navlist li.on > a{}
+		.header_inner nav .navlist .on::after{height: 2px; width: 100%; background: #D9D837; display: block; content: ""; position: absolute; top: 0;}
+?? 왜 a의 넓이를 100%했는데 부모의 너비를 따라가지 않을까??
+
+width 주지 않고 left right 00 주면 너비 지정전까지는 너비  100%같은 효과가 있다.
+
+a,a:hover{} 이렇게 사용하니까 이상하다. 풀로 다써주는게 좋다
+
+1920 ~ 1280 사이에는 스크롤이 생기지 않는것이 좋다.
+
+100vh
+
+background-position : center = full bg 의 중앙배치
+position 을 상세하기 주면 그림 의 원하는 부분을 중앙으로 배치????
+
+css filter
+
+svg 포토햡 으로 저장눌러서 코드보기로 코드를 복사해서 css 에서 불러온다.

@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+ul,li{list-style: none;}
+
+.tablist {overflow: hidden;}
+.tablist > li {float : left;}
+.tablist > li > a{display: block; padding: 10px; background: #ccc; text-decoration: none;}
+.tablist > li.on > a{background: #000; color : #fff;}
+
+.tabcont {}
+.tabcont .cont{display: none;}
+.tabcont .cont:first-child{display: block;}

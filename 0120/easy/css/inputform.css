@@ -1,0 +1,76 @@
+/* 폼 라이트 - 기본 메터리얼 4단계 적용 */
+.frm_write {border-top:1px solid #b9c95c; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); background: #fff}
+.frm_write .frm_list > li {display:flex;width: 100%;border-bottom:1px solid #d4d3d3;} 
+.frm_write .frm_list > li .frm_clm {display:inline-block}
+.frm_write .frm_list > li .frm_clm.col1 {width:calc(100%/1)}
+.frm_write .frm_list > li .frm_clm.col2 {width:calc(100%/2)} 
+.frm_write .frm_list > li .frm_clm.col3 {/* width:calc(100%/3) */flex: 1;}
+.frm_write .dlist {display:table; width: 100%; height: 100%}
+.frm_write .dlist > dt,
+.frm_write .dlist > dd {padding:10px 10px; display: table-cell; vertical-align: middle}
+.frm_write .dlist > dd.txtrow {padding:15px 0}
+.frm_write .dlist > dd.txtrow .row {padding:15px; border-bottom:1px solid #d4d3d3}
+.frm_write .dlist > dd.txtrow .row:last-child {border-bottom:none}
+.frm_write .dlist > dt {width:90px; text-align: center; background: #f8f8f8}
+.frm_write .dlist > dd {}
+.frm_write .dlist > dd .inputset {width:100%}
+.frm_write .dlist > dd .inputset.rdo,
+.frm_write .dlist > dd .inputset.ckbox {width:auto}
+.frm_write .dlist > dd .row + .row {margin-top:10px}
+
+.frm_write .dlist > dd .sbj_col3_outer {overflow:hidden; padding: 10px}
+.frm_write .dlist > dd .sbj_col3 {float: left}
+.frm_write .dlist > dd .sbj_col3 + .sbj_col3 {margin-left:1%}
+.frm_write .dlist > dd .sbj_col3 .stxt {margin-bottom: 10px}
+
+.frm_write .dlist > dd .inputset + .btn {margin-left:10px}
+.frm_write .dlist > dd .input_col .flag {line-height:42px; display:inline-block; padding:0 10px}
+.frm_write .dlist > dd .stxt {font-weight:normal}
+.frm_write .dlist > dd .input_col .stxt {}
+.frm_write .dlist > dd .input_col .stxt.ty1 {min-width:100px}
+.frm_write .dlist > dd .input_col .stxt + .inputset,
+.frm_write .dlist > dd .input_col .stxt + .inputdate,
+.frm_write .dlist > dd .input_col .stxt + .ctrbox_row {margin-left:5px}
+.frm_write .dlist > dd .input_col .stxt + .ctrbox_row {flex:1; -webkit-flex:1}
+
+.frm_write .dlist > dd .input_col .inputdate + .inputset,
+.frm_write .dlist > dd .input_col .inputset + .stxt,
+.frm_write .dlist > dd .input_col .inputdate + .stxt{margin-left:20px}
+.frm_write .dlist > dd .input_col .inputdate {flex:1; -webkit-flex:1}
+
+.frm_write .dlist > dd .input_col.reverse .stxt + .inputset {margin-left:20px}
+.frm_write .dlist > dd .input_col.reverse .inputset + .stxt {margin-left:5px}
+
+.frm_write .dlist > dd .inputset.txt {display:flex}
+.frm_write .dlist > dd .inputset.txt input {flex:1}
+.frm_write .dlist > dd .inputset.txt .txt_sub {line-height: 28px}
+.frm_write .dlist > dd .info_result {margin-top: 10px }
+.frm_write .dlist > dd .info_result > span[class^="txt"] {display:block; margin-top: 5px}
+
+
+.frm_write .frm_list > li .frm_clm.col1 .dlist > dt,
+.frm_write .frm_list > li .frm_clm.col2 .dlist > dt {width:150px}
+
+.frm_write .dlist > dd label .inputset {width:auto}
+
+.frm_write .dlist > dd .t_list {box-shadow:none}
+.frm_write .dlist > dd .t_list td .inputset {vertical-align: middle }
+.frm_write .dlist > dd .t_list td .btn {padding:8px 10px 7px}
+.frm_write .dlist > dd .t_list td .btn .ico.more { }
+.frm_write .dlist > dd .t_list td .btn .ico.more:before {width: 14px; height: 14px; background-size: 84px 14px; background-position:-70px 0}
+.frm_write .dlist > dd .stxt + .slink,
+.frm_write .dlist > dd label + .slink{margin-top:15px;}
+
+
+.frm_write .dlist > dd .input_col.file {display:flex}
+.content.jointype2 .frm_write .dlist > dd .input_col.file .inputset.txt {display:flex}
+
+.frm_write.dtview .dlist > dt {width:150px}
+
+
+.frm_write.ty1 { }
+.frm_write.ty1 .dlist {width: 100%; font-size: 14px; height: 100%; display:block}
+.frm_write.ty1 .dlist > dt {width:100%; text-align: left}
+.frm_write.ty1 .dlist > dt,
+.frm_write.ty1 .dlist > dd {padding:15px 10px; vertical-align: middle; display:block}
+.frm_write.ty1 .frm_list > li .frm_clm {width:100%}

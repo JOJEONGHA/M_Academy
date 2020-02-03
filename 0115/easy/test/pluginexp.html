@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<style type="text/css">
+.blue {width:100px; height:100px; background:#03F}
+.orange {width:100px; height:100px; background:#F96}
+</style>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+
+<script>
+(function($){
+	$.fn.swapclass = function(class1,class2) { 
+		return this.each(function(){
+			var $ele = $(this);
+			if($ele.hasClass(class1)){
+				$ele.removeClass(class1).addClass(class2);
+			} else if($ele.hasClass(class2)) { 
+				$ele.removeClass(class2).addClass(class1);	
+			}
+		});
+	};	
+})(jQuery);
+
+$(function(){
+	$("div").each(function(){
+		if($(this).hasClass("blue")) { 
+			$(this).swapclass("blue","orange");
+		} else if($(this).hasClass("orange")){
+			$(this).swapclass("blue","orange");		
+		}
+	});
+});
+</script>
+<div class="orange"></div>
+<div class="blue"></div>
+</head>
+
+<body>
+
+</body>
+</html>

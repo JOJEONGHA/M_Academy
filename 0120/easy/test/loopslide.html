@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="css/swiper.css" /> 
+
+<style type="text/css">
+
+.gallery {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px green dotted;
+    margin: 30px 0 0 150px;
+	overflow:hidden;
+}
+
+.gallery ul {
+    font-size: 0;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery li {
+    display: inline-block;
+    vertical-align: top;
+    width: 96px;
+    height: 96px;
+    white-space: normal;
+    padding: 2px;
+}
+
+.gallery li img {width:100%}
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="gallery">
+	<ul>
+    	<li><img src="img/img1.jpg" alt="" /></li>
+        <li><img src="img/img2.jpg" alt="" /></li>
+        <li><img src="img/img3.jpg" alt="" /></li>
+        <!-- <li><img src="img/img4.jpg" alt="" /></li> -->
+    </ul>
+</div>
+
+<button type="button" id="prev">이전</button>
+<button type="button" id="next">다음</button>
+
+
+</body>
+
+<script> 
+
+$(function() {
+	var gallery = $('.gallery > ul'),
+		items = gallery.find("li"),
+		len = items.length,
+		current = 1,
+		first = items.filter(':first'),
+		last = items.filter(':last'),
+		triggers = $('button');
+		
+  first.before(last.clone(true)); 
+  last.after(first.clone(true)); 
+	
+	console.log(len);
+  		
+		
+	first.css('border','1px solid #f00');
+	last.css('border','1px solid #f00');
+	
+  triggers.on('click', function() {
+    
+    if (gallery.is(':not(:animated)')) {
+     
+        var cycle = false,
+            delta = (this.id === "prev")? -1 : 1;
+
+    
+        gallery.animate({ left: "+=" + (-100 * delta) }, function() {
+			
+            current += delta;
+			console.log("current == ", current);
+			//console.log("delta == ", delta);
+       
+            cycle = (current === 0 || current > len);
+			console.log("cycle == ", cycle);
+       		
+            if (cycle) {				
+                current = (current === 0)? len : 1; 
+                gallery.css({left:  -100 * current });
+				console.log("current ==", current);
+            }
+        });   
+     }
+    
+  });	
+		
+	
+	
+})
+
+</script>
+
+</html>

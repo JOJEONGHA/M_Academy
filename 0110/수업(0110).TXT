@@ -1,0 +1,36 @@
+dom = document object model
+
+jquery : DOM을 조작해서 UI를 만들어낸다는 느낌
+
+jquery 애니메이션은 느리고 끊긴다. 따라서 애니메이션은 css로 제삭하는게 좋다.
+
+해결할수 있는 부분은 가급적 css로 해결하도록하고 jquery 사용빈도를 줄이자.
+
+-- 100%가 아닌 vw를 사용하는 이유는??
+
+클래스 변화를 가령 on 을 추가해서 하는것에서 transition 을 추가해두면 변한다???
+
+class > class > tag > tag (0)
+class > class > tag > class (X) 안되는건아니지만 비선호.
+
+실제 업무시 jquery 를 다운받아와서 불러와서 사용해야한다.
+
+공간을 남겨놓기위해서 visibility : hidden 을 사용한다. 그러나 애니메이션 효과를 주기 위해선 opacity : 0를 사용한다.
+
+transform: translateY(6px) rotate(-45deg);
+ : transform 은 변화를 연속적으로 이렇게 부여 할 수 있다.
+
+transform 의 기준은 좌측 상단이다.
+find("class") : 자식요소를 찾을 때 
+hasClass("class") : 해당 객체가 해당클래스인지
+
+
+---------------------------------------------------
+Q. default에 태그에 값이 우선순위가 더높다... 왜???
+정정. 클래스가 태그보다 우선순위가 높다.
+단 :visited 의 경우는 특이하게 클래스보다 우선순위가 높다.
+
+Q. jquery의 방어코드가 뭔가??
+
+Q. Text가 사라진다???
+

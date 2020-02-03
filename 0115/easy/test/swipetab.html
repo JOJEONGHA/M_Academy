@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="css/swiper.css" /> 
+
+<style type="text/css">
+body {font-size:16px}
+.step_area { }
+.step_area > h2 {display:none}
+.step_area ol.step {list-style:none; margin:0; padding:0; overflow:hidden}
+.step_area ol.step li {border:1px solid #f00; float:left; padding:20px}
+</style>
+
+</head>
+
+<body>
+
+<div class="head_area">
+    <div class="fixed">
+        <div class="step_area">
+            <h2>약관보기</h2>            
+            <ol class="step">
+            </ol>
+        </div>        
+    </div>
+</div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                탭내용1<br />
+                 탭내용1<br />
+                  탭내용1<br />
+                   탭내용1<br />
+                    탭내용1<br />
+                     탭내용1<br />
+                      탭내용1<br />
+                      
+            </div>
+            <div class="swiper-slide">
+                탭내용2
+            </div>                
+        </div>
+    </div>
+</body>
+
+<script> 
+var li_num;
+var swiper = new Swiper('.swiper-container', { 
+	pagination: '.step',
+	speed : 300,
+	initialSlide: 0,
+	paginationClickable: true,
+	spaceBetween:50,
+	threshold:50,
+	resistanceRatio:0,
+	preventClicks:true,
+	paginationElement:'li',
+	bulletActiveClass:'on',
+	bulletClass:'bult',
+	paginationBulletRender: function(index, className) {
+	return '<li class="'+ className + '">' + (index+1) + '</li>';
+	},
+	// 최초 한번 선언
+ 
+	onInit: function() { 
+		li_num = $('.step li').length -1;
+	},
+ 
+	onTransitionStart: function() {
+		$('.foot_area .fixed a').removeClass("active");   
+	}
+}); 
+
+</script>
+
+</html>

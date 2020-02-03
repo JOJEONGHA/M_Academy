@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+<title>Untitled Document</title>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="script/swiper.min.js"></script>
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css" />
+</head>
+
+<body>
+
+<style type="text/css">
+.swiper-slide {
+  height: auto;
+}	
+.visual {overflow:hidden; height:769px; width: 100%; position:relative}
+.visual_inner {    width: 1980px;
+    height: 769px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -990px;}
+.visual .simg {width:1980px; height: 769px;}
+.visual .simg > img { }
+
+.visual .swiper_pagingbox {position:absolute; top:100px; left:20%}
+.visual .swiper_pagingbox .swiper-pagination-bullet {width:70px; height: 70px; display:table}
+.visual .swiper_pagingbox .swiper-pagination-bullet > span {display:table-cell; vertical-align:middle; color:#fff}
+.visual .swiper_pagingbox .swiper-pagination-bullet-active {background: #4d2626}
+.visual .swiper_pagingbox .swiper-pagination-bullet + .swiper-pagination-bullet {margin-top:20px}
+.visual .stxtinfo {position:absolute; top:100px; left:28%}
+.visual .stxtinfo .stxt {color:#fff; display: block; text-shadow:1px 1px 3px #1e1e1e}
+.visual .stxtinfo .stxt.fsttxt {font-size:3.75em}
+.visual .stxtinfo .stxt.sectxt {font-size:1.875em }
+.visual .stxtinfo .stxt.sectxt .prdc {font-size:.875em}	
+	
+/* 기본슬라이드 */	
+.visual_normalswiper {position:relative; overflow: hidden; height:510px}
+.visual_normalswiper .visual_inner {position:absolute; width:1920px; height:510px; left:50%; top:0; margin:0 0 0 -960px}
+
+.visual_normalswiper div[class^=swiper-button] {width:43px; height:81px; background: url(../img/mvisual_arrset.png) no-repeat 0 0}
+.visual_normalswiper div.swiper-button-prev {left:95px}
+.visual_normalswiper div.swiper-button-next {background-position: -43px 0; right:95px}
+.visual_normalswiper .swiper-container-horizontal>.swiper-pagination-bullets {bottom:40px}
+
+
+.visual_normalswiper .visual_inner .txtinfo {position:absolute; top:70px; left:0; right:0; text-align: center;}
+.visual_normalswiper .visual_inner .txtinfo .stxt {color:#fff; display: block}
+.visual_normalswiper .visual_inner .txtinfo .stxt.copy1 {font-size:3em}
+.visual_normalswiper .visual_inner .txtinfo .stxt.copy2 {font-size:2.5em}
+.visual_normalswiper .visual_inner .txtinfo .stxt.copy3 {font-size:1.7em}
+.visual_normalswiper .visual_inner .txtinfo .stxt.copy4 {font-size:1.2em}
+.visual_normalswiper .visual_inner .txtinfo h2 {font-weight:600}
+.visual_normalswiper .visual_inner .txtinfo h2 + .stxt {margin-top:20px}
+.visual_normalswiper .swiper-pagination-bullet {width:15px; height: 15px; background: #fff; box-shadow: 0 7px 12px rgba(0,0,0,0.24), 0 1px 2px rgba(0,0,0,0.27);
+opacity: 1; margin-right:5px}
+.visual_normalswiper .swiper-pagination-bullet-active {width:90px; background: #5d56a3; border-radius: 10px}
+
+.visual_normalswiper .swiper_pagingbox {text-align: center; position: absolute; bottom: 140px; width: 100%; z-index: 10}
+.visual_normalswiper .swiper_pagingbox .swiper-pagination {display: inline-block; position: relative}
+.visual_normalswiper .swiper-stop {display: inline-block; background: transparent; 
+text-shadow:3px 3px 3px #000}
+.visual_normalswiper .swiper-stop > span {display:inline-block; width: 3px; height: 15px; background: #fff; box-shadow: 0 7px 12px rgba(0,0,0,0.24), 0 1px 2px rgba(0,0,0,0.27)}
+.visual_normalswiper .swiper-play { position:relative; display: inline-block; background: transparent; }
+.visual_normalswiper .swiper-play .arr {display:block; width:15px; height: 15px}
+.visual_normalswiper .swiper-play .arr:before {content: ""; display:block; position: absolute; width: 0; height: 0; margin-top:16px; box-sizing: border-box; border: 6px solid black;
+    border-color: transparent transparent #fff #fff; transform-origin: 0 0; transform: rotate(-135deg); box-shadow: -4px 1px 3px 0 rgba(0,0,0,0.24)}
+.visual_normalswiper .swiper-play.on .arr:before {border-color: transparent transparent #4c84ff #4c84ff; }
+.visual_normalswiper .swiper-stop.on > span {background: #4c84ff}
+.visual_normalswiper .swiper-pagination + .swiper-stop {margin-left:20px }
+.visual_normalswiper .swiper-stop + .swiper-play {margin-left:10px}
+
+.visual_normalswiper .visual_inner .swipervisual {display:block; width:100%; height:510px; 
+background-size:cover;}
+
+.visual_normalswiper .visual_inner .swipervisual.ty1 {background:url('image/visual_normal01.jpg') no-repeat center top }
+.visual_normalswiper .visual_inner .swipervisual.ty2 {background:url('image/visual_normal02.jpg') no-repeat center top }
+.visual_normalswiper .visual_inner .swipervisual.ty3 {background:url('image/visual_normal03.jpg') no-repeat center top }
+	
+	
+</style>
+
+<div class="visual">
+	<div class="visual_inner">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="image/mainvisual0.jpg" alt="" />	
+				<div class="stxtinfo">
+					<span class="stxt fsttxt">대한민국 오직 단하나</span>
+					<span class="stxt sectxt">특허숙성법으로 생산한<br />
+						<span class="prdc">로얄통가노니</span>
+					</span>
+					<a href="" class="btn">로얄통가노니 상품보기</a>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img src="image/mainvisual1.jpg" alt="" />	
+				<div class="stxtinfo">
+					<span class="stxt fsttxt">한결같은 제품에 대한 약속</span>
+					<span class="stxt sectxt">차가버섯 추출액이 들어있는<br />
+						<span class="prdc">프리미엄 차가노니</span>
+					</span>
+					<a href="" class="btn">차가노니 상품보기</a>
+				</div>
+
+			</div>
+			<div class="swiper-slide">
+				<img src="/image/mainvisual2.jpg" alt="" />	
+				<div class="stxtinfo">
+					<span class="stxt fsttxt">로얄통가노니에 이은 또하나의 명작</span>
+					<span class="stxt sectxt">자연산 큰실말 100% 특허추출법<br />
+						<span class="prdc">아미나아 후코이단</span>
+					</span>
+					<a href="" class="btn">아미나아 후코이단 상품보기</a>
+				</div>	
+			</div>
+			<div class="swiper-slide">
+				<img src="image/mainvisual3.jpg" alt="" />	
+				<div class="stxtinfo">
+					<span class="stxt fsttxt">각질, 메이크업, 클렌징을 한번에</span>
+					<span class="stxt sectxt">남태평양 화산지대에서 자란 노니가 함유된<br />
+						<span class="prdc">노니비누</span>
+					</span>
+					<a href="" class="btn">노니비누 상품보기</a>
+				</div>	
+			</div>														
+			<div class="swiper-slide">
+				<img src="image/mainvisual4.jpg" alt="" />	
+				<div class="stxtinfo">
+					<span class="stxt fsttxt">노니의 성분을 미스트에 담다.</span>
+					<span class="stxt sectxt">국내유일 200여가지 노니 유효성분을 담은<br />
+						<span class="prdc">노니미스트</span>
+					</span>
+					<a href="" class="btn">노니미스트 상품보기</a>
+				</div>	
+			</div>														
+
+		</div>
+		<div class="swiper_pagingbox">
+			<div class="swiper-pagination">
+			</div>
+			<button type="button" class="swiper-stop">
+				<span></span>
+				<span></span>
+			</button>
+			<button type="button" class="swiper-play">
+				<span class="arr"></span>
+			</button>
+		</div>			
+	</div>
+</div>
+</div>
+
+<div style="height:300px">
+	<div class="swiper-containerx">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<!-- 컨텐츠 -->
+				내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />
+
+				<!-- //컨텐츠 -->								
+			</div>						
+		</div>
+		<div class="swiper-scrollbar"></div>
+	</div>					
+</div>
+	
+	<div class="visual_normalswiper">
+		<div class="visual_inner">
+			<div class="swiper-container-normal">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="txtinfo">
+							<h2>
+								<span class="stxt copy1">FX CITY  TRUST  SUCCESS</span>
+								<span class="stxt copy2">신뢰, 그리고 성공 여러분과 함께하겠습니다.</span>
+							</h2>
+							<p class="stxt copy3">OPEN EVENT</p>
+							<p class="stxt copy4">모든 투자종목 10.31일까지 2% 수수료 할인 적용</p>
+						</div>
+						<span class="swipervisual ty1"></span>
+					</div>
+					<div class="swiper-slide">
+						<div class="txtinfo">
+							<h2>
+								<span class="stxt copy1">FX CITY  TRUST  SUCCESS</span>
+								<span class="stxt copy2">신뢰, 그리고 성공 여러분과 함께하겠습니다.</span>
+							</h2>
+							<p class="stxt copy3">OPEN EVENT</p>
+							<p class="stxt copy4">모든 투자종목 10.31일까지 2% 수수료 할인 적용</p>
+						</div>
+						<span class="swipervisual ty2"></span>
+					</div>
+					<div class="swiper-slide">
+						<div class="txtinfo">
+							<h2>
+								<span class="stxt copy1">FX CITY  TRUST  SUCCESS</span>
+								<span class="stxt copy2">신뢰, 그리고 성공 여러분과 함께하겠습니다.</span>
+							</h2>
+							<p class="stxt copy3">OPEN EVENT</p>
+							<p class="stxt copy4">모든 투자종목 10.31일까지 2% 수수료 할인 적용</p>
+						</div>
+						<span class="swipervisual ty3"></span>
+					</div>
+					
+				</div>
+			</div>
+			<!-- Add Arrows -->
+			<div class="swiper_pagingbox">
+				<div class="swiper-pagination">
+				</div>
+				<button type="button" class="swiper-stop">
+					<span></span>
+					<span></span>
+				</button>
+				<button type="button" class="swiper-play">
+					<span class="arr"></span>
+				</button>
+			</div>
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>	
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+	  effect: 'fade',
+	  speed : 2500,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+        	console.log(className);
+			var prarray = ["노니","차가노니","후코이단","노니비누", "미스트"]
+          return '<span class="' + className + '"><span>' + prarray[index] + '</span></span>';
+        }
+      },	
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+	  parallax: true,
+	  autoplay:true,	
+    });
+
+   var swiper = new Swiper('.swiper-containerx', {
+	  direction: 'vertical',
+	  slidesPerView: 'auto',
+	  freeMode: true,
+	  scrollbar: {
+		el: '.swiper-scrollbar',
+	  },
+	  mousewheel: true,
+	});	  
+	
+	var mySwiperNoraml = new Swiper('.swiper-container-normal', {
+	initialSlide : 0,
+	speed : 1000,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	parallax: true,
+	autoplay:true,
+	autoplayDisableOnInteraction: false
+	});
+	mySwiperNoraml.on('slideChange', function () {
+		//console.log(mySwiper.activeIndex);
+		if(mySwiperNoraml.activeIndex == 1) {
+			 $('.swiper-button-next').addClass("ty1");
+			 $('.swiper-button-prev').addClass("ty1");
+		} else {
+			 $('.swiper-button-next').removeClass("ty1");
+			 $('.swiper-button-prev').removeClass("ty1");
+		}
+	});
+
+	$(".swiper-stop").on("click", function() {
+		mySwiperNoraml.autoplay.stop();
+		if($(this).hasClass("on")) {
+			$(this).removeClass("on");
+		} else {
+			$(this).addClass("on");
+			$(".swiper-play").removeClass("on");
+		}
+	});
+	$(".swiper-play").on("click", function() {
+		mySwiperNoraml.autoplay.start();
+		if($(this).hasClass("on")) {
+			$(this).removeClass("on");
+		} else {
+			$(this).addClass("on");
+			$(".swiper-stop").removeClass("on");
+		}
+
+	});
+	
+	  
+</script>	
+	
+</body>
+</html>

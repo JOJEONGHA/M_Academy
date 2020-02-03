@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+<style type="text/css">
+body {margin:0; padding:0}
+* {
+outline:none;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;	
+}
+
+.header {position:fixed; top:0; left:0; width:100%; height:180px; background:#fff; z-index:10; transition:all .2s ease}
+.header .logo {position:absolute; top:0; left:0; background:#C00; width:100%; height:130px; opacity:1; transition:all .2s ease}
+.header.off {top:-130px}
+.header.off .logo {opacity:0}
+/* .header {position:relative; width:100%; height:200px; background:#fff} */
+.containor {position:relative; min-width:1200px}
+.content_sclsetouter {position:relative; top:0; overflow:hidden}
+.content_sclset {position:relative}
+.content_scl.pg1 {background:url('img/img1.jpg') no-repeat 0 0; background-size:100%}
+.content_scl.pg2 {background:url('img/img2.jpg') no-repeat 0 0; background-size:100%}
+.content_scl.pg3 {background:url('img/img3.jpg') no-repeat 0 0; background-size:100%}
+.content_scl.pg4 {background:url('img/img4.jpg') no-repeat 0 0; background-size:100%}
+.content_sclsetouter .menu_scroll {position:fixed; top:0; right:0; z-index:50}
+</style>
+<script>
+var pshparell = { }
+
+pshparell.winHT = $(window).height();
+pshparell.distance = pshparell.winHT;
+pshparell.count = 0;
+pshparell.pmoving = false;
+
+if(window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+	
+	function wheel (event) { 
+		/* delta : 
+			1. 마우스 스크롤을 아래로 내릴 경우 음수 -1		
+			2. 마우스 스크롤을 위로 올릴 경우 양수 1 
+			해당 1 2값으로 스크롤 방향 구분
+		*/
+		var delta = 0;
+		if(event.wheelDelta) delta = event.wheelDelta / 120;
+		else if (event.detail) delta = -event.detail / 3;
+		
+		handle(delta);
+		if(event.preventDefault) event.preventDefault();
+		event.returnValue = false;
+	}
+	
+	function handle(delta) {
+		var time = 1000;
+		var distance = $(window).height();
+		if($('.content_sclset').css('top').replace("px","")  == 0 && delta > 0) { 
+			
+			// 첫번째 화면일 경우
+			distance = 0;			
+			//$('.header').removeClass("off")
+		} else { 
+			//$('.header').addClass("off")
+		} 
+		
+		//console.log("distance * ($('.content_scl').length - 1) ==", distance * ($('.content_scl').length - 1));
+		//console.log("$('.content_scl:first').offset().top == ", $('.content_scl:first').offset().top);
+		//console.log("distance == ", distance);
+		//console.log("delta == ", delta);
+		
+		if(pshparell.pmoving == false) { 
+			pshparell.pmoving = true;
+			
+			var zz = $('.content_scl:first').offset().top + (distance * delta);
+			var aa = -(distance * ($('.content_scl').length));
+			
+			if(zz == aa) { 
+				console.log("delta" , delta);
+				$('.content_sclset').stop().animate({			
+					//scrollTop : $(window).scrollTop() - (distance * delta)
+					top : $('.content_scl').offset().top
+				}, time, function(){
+					pshparell.pmoving = false;
+				});					
+			} else { 
+				console.log("delta else인경우 ==" , delta);
+				$('.content_sclset').stop().animate({			
+					//scrollTop : $(window).scrollTop() - (distance * delta)
+					top : $('.content_scl:first').offset().top  + (distance * delta)
+				}, time, function(){
+					pshparell.pmoving = false;
+				});		
+				
+				if(zz == 0) { 
+					$('.header').removeClass("off")
+				} else { 
+					$('.header').addClass("off")
+				}
+				
+				/*
+				if($('.content_sclset').css('top').replace("px","")  == 0) { 
+					console.log("처음화면일때 top값", $('.content_sclset').css('top').replace("px",""));
+					console.log("처음화면일때");
+				} else { 
+					console.log("처음화면이아닐때 top값", $('.content_sclset').css('top').replace("px",""));
+					console.log("처음화면이 아닐때");
+				}
+				
+				구분값 : delta : -1, 1
+				*/
+				
+				
+			}	
+															
+			//console.log("distance * ($('.content_scl').length - 1) ==", distance * ($('.content_scl').length - 1));
+			//console.log("$('.content_scl:first').offset().top  + (distance * delta) == ", $('.content_scl:first').offset().top  + (distance * delta));						
+		}		
+	}	
+$(function(){	
+	pshparell.scleng = $('.content_scl').length; // 패럴랙스 그룹의 갯수
+	// 패럴랙스 스크롤 div 헤이트는 window 헤이트 값으로 가변 고정		
+	$('.content_sclsetouter').height(pshparell.winHT);
+	$('.content_sclset').height( (pshparell.winHT * pshparell.scleng) );
+	$('.content_scl').height(pshparell.winHT);
+	
+	pshparell.parellLink = $('.menu_scroll > ul > li > a');
+	
+	pshparell.scfunc = function(event) { 
+		var _this = $(this);
+		var _thispt = $(this).parent();
+		var _target = $(event).target;
+		var _index = _thispt.index(_target);
+		
+		pshparell.count = _index;
+		var scrollHT = 	pshparell.distance * pshparell.count;
+		
+		$('.content_sclset').animate({top : -scrollHT}, 500);	
+	};
+	pshparell.parellLink.on("click", pshparell.scfunc);
+	/*
+	$('html, body').on('mousewheel', function(e){
+			e.stopPropagation();
+
+			if(e.originalEvent.wheelDelta / 120 > 0) { 			
+				 //마우스 휠 (위로)
+			} else { 
+				 //마우스 휠 (아래로)
+				
+				$('.content_sclset').animate({top : -scrollHT}, {complete : function(){
+					pshparell.count = pshparell.count + 1 ;
+					pshparell.wheelmove = false;	
+				}});								
+			}
+		//var _index = $('.content_sclset .content_scl');
+		//console.log("e.originalEvent.wheelDelta / 120 ==", e.originalEvent.wheelDelta / 120);
+	});
+	*/
+	$(window).resize(function(){
+		pshparell.winHT = $(window).height();
+		pshparell.distance = pshparell.winHT;		
+		$('.content_sclsetouter').height(pshparell.winHT);
+		$('.content_sclset').height( (pshparell.winHT * pshparell.scleng) );
+		$('.content_scl').height(pshparell.winHT);
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="containor">
+	<div class="header">
+    	<div class="logo">
+        </div>
+    </div>
+    <div class="content_sclsetouter">
+        <div class="content_sclset">
+            <div class="content_scl pg1">
+            
+            </div>
+            <div class="content_scl pg2">
+            
+            </div>
+            <div class="content_scl pg3">
+            
+            </div>
+            <div class="content_scl pg4">
+            
+            </div>
+        </div>
+        
+        <div class="menu_scroll">
+            <ul>
+                <li><a href="#none">메뉴1</a></li>
+                <li><a href="#none">메뉴2</a></li>
+                <li><a href="#none">메뉴3</a></li>
+                <li><a href="#none">메뉴4</a></li>        
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

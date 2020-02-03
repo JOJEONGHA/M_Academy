@@ -1,0 +1,53 @@
+background size : 해당 속성이 없으면 원래 기본적으로 사진의 원본의 크기를 그대로 보여준다. 따라서 호출되는 태그의 크기를 무시하니 짤리거나 여백이 발생할 수 있다. 그래서 이 속성을 통하여 표현되야하는 공간의 크기를 전달해준다. 어떤값을 부여하든 해당 영역에 모든 값이 다 표시된다.
+
+.moneyset .direction .starset .starlist li.on{}
+ : li 태그중에 on class 를 가진 태그
+
+.moneyset .direction .starset .starlist li + li{margin: 0 0 0 3px;}
+ : 이런식으로 표현하면 첫 태그 이후에 나오는 연속적인 li 태그에 해당 속성이 부여된다.
+
+div의 초기 속성의 width 값은 100% 이다.
+
+Q. vertical-align 에 대한 이해 필요!!
+
+padding은 정확하지 않다. 왜?? inline속성 때문에 그런거같은데...
+그래서 위아래 height속성을 주고 line-height로 중앙정렬하고 좌우만 패딩을 준다.
+
+line-height속성은 살짝 크게 해야지 높이가 정중앙에 위치한다. 텍스트 lineheight만큼 의 높이를 모두 차지 하지 않기 때문이다!!!
+
+태그의 자식태그 위치에 입력된 text는 단순 span으로 인식한다. 즉 befor after를 하면 해당 텍스트의 앞이나 뒤에 가상태그를 위치시킬 수 있다.
+
+http://k-desi9n.kr/pbguide/pub/biz/sub/uiframe.html
+
+float 속성에 영향을 다른 태그들이 받지 않도록 잘 코딩하는거 방탄앱!! : 최소단위를 div를 통해 감싸준다.
+
+li태그가 다루기 쉬우므로 list형태는 ul,li를 사용한
+
+접근성 할때 탭매뉴 만들때 dl dt, margin 100퍼 센트를 줘서 float left임에도 불구하고 밑에 위치하게 할 수 있다.
+
+a는 block 으로 가져간다. 
+
+Q. 단순히 a태그를 무스하는데 이러면 안되는가?
+
+방탄앱을 감싸는 태그는 단순 블럭 속선만 준다??싸기만 하면 되기 때문에 크게 상관없다.
+
+font size는 px 를 em 으로 환산한다. em이란 body의 폰트 사이즈 를 말한다. 실제로 14px/16 = 1em 인데 이게 17로 변할수도 있다.
+em 단위의 장점은 body { font :  normal 100%/1.5 "wefwef"; }여기에 em으로 fontsize가 지정되어있으면 body의 폰트 기본 사이즈만 변경하더라도 모든 글자의 폰트 크기가 변경될 수 있다.!!!
+
+id는 개발자들이 사용하기때문에 사용하면 안된다. 대신 고유의 클래스 명을 정해서 id같이 사용할 수 있다.
+
+default.css 에 body의 글자크기를 적어 줄 수있겠지.
+
+nth-child는 위에서부터 순서대로 센다. class 이름이 what이면
+what
+what
+no
+what	<- 이거는 .what:nth-child(4) 이다. 3자리는 no가 있어서 건너 뛴다.
+what
+
+span 태그로 감싼 display block 속성 안넣어도 되는곳에 안넣어도 실제 보이는ㄴ건 이상없는데 구글 크롭 개발자 옵션으로 영역을 보면 일부 짤린 상태로 나오는걸 볼 수 있다.
+
+중앙정렬시 position top 0 bottom 0  margin auto 로 한다.
+
+block 이 inline 보다 상위레벨이다. 따라서 block 내부에 inline이 
+a태그 자체에 block 을 주지 않으면 영역이 모호해져서 앋뇐다

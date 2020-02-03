@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+body {margin:0; padding:0}
+ul {list-style:none; margin:0; padding:0}
+ul.vslide {position:relative; width:240px; height:100px; overflow:hidden}
+ul.vslide > li {position:absolute}
+ul.vslide > li > a {display:block}
+ul.vslide > li > a > img {vertical-align:top}
+
+.vslide_ctr .paging {overflow:hidden }
+.vslide_ctr .paging li {float:left; width:20px; height:20px; background:#d9d9d9; margin-right:10px}
+.vslide_ctr .paging li.on {background:#00f}
+.vslide_ctr .paging li a {display:block; text-align:center; color:#fff}
+</style>
+</head>
+
+<body>
+
+<div class="vslide_ctr">
+	<a href="#none" class="prev">이전</a>
+	<a href="#none" class="next">다음</a>
+    <ul class="paging">
+    	<li class="on"><a href="#none">1</a></li>
+        <li><a href="#none">2</a></li>
+        <li><a href="#none">3</a></li>
+        <li><a href="#none">4</a></li>
+    </ul>
+    
+    <a href="#none" class="autoplay">자동</a>
+    <a href="#none" class="stop">정지</a>
+</div>
+
+<ul class="vslide">
+    <li><a href="#none"><img src="img/banner1.gif" alt="" /></a></li>
+    <li><a href="#none"><img src="img/banner2.gif" alt="" /></a></li>
+    <li><a href="#none"><img src="img/banner3.gif" alt="" /></a></li>
+    <li><a href="#none">1111</a></li>
+</ul>
+
+
+
+<script>
+var pshtimeban = { } // 타임롤링배너의 구조화 변수 선언
+
+pshtimeban.banWidth = $('ul.vslide > li:first > a > img').outerWidth(); //img의 width값 
+pshtimeban.vslide_length = $('ul.vslide > li').length; //li의 갯수
+pshtimeban.posX; // X좌표의 위치값
+pshtimeban.moving = false;
+pshtimeban.directionLeftmove = false;
+pshtimeban.autoplay;
+pshtimeban.currentNum = 0; // 초기 paging num
+
+pshtimeban.init = function() { 
+	/** 
+		vslide li의 위치 초기화 
+	**/	
+			
+	$('ul.vslide > li').each(function(index, element){
+		current = index;
+		pshtimeban.posX = current * pshtimeban.banWidth;		
+				
+		$(this).attr('id', ('shban' + index)); // id 값 할당
+		if(current < pshtimeban.vslide_length) { 			
+			$('ul.vslide').find("li#shban" + current).css('left',pshtimeban.posX);
+			current ++;
+		} else { 
+			current = 0;
+		}		
+	});		
+	
+	//pshtimeban.timebanautoMoving(); //자동실행 호출
+	$('.vslide_ctr a.prev').on("click", pshtimeban.timebanrtMoving);
+	$('.vslide_ctr a.next').on("click", pshtimeban.timebanltMoving);
+	$('.vslide_ctr a.autoplay').on("click", pshtimeban.timebanautoMoving);
+	$('.vslide_ctr a.stop').on("click", pshtimeban.timebanclearMoving);
+	$('.vslide_ctr .paging > li > a').on("click", pshtimeban.pagelink);
+}
+
+
+// 자동재생
+pshtimeban.timebanautoMoving = function() { 
+	pshtimeban.autoplay = setInterval(function(){
+		if($('ul.vslide > li:last').css('left').replace('px','') == 0) { 
+			pshtimeban.directionLeftmove = false;
+		} else if ($('ul.vslide > li:first').css('left').replace('px','') == 0) { 
+			pshtimeban.directionLeftmove = true;
+		}
+		
+		if(pshtimeban.directionLeftmove) { 
+			pshtimeban.timebanltMoving();
+		} else { 
+			pshtimeban.timebandfMoving(); // 초기값 세팅
+			//pshtimeban.timebanrtMoving();
+		}
+	}, 2000);
+}
+
+//정지
+pshtimeban.timebanclearMoving = function() { 
+	clearInterval(pshtimeban.autoplay);
+}
+
+// 초기값 세팅
+pshtimeban.timebandfMoving = function() { 
+	var current = 0;
+	if(0 > $('ul.vslide > li:first').css('left').replace('px','') && pshtimeban.moving == false) { 
+		pshtimeban.moving = true;	
+		$('ul.vslide > li').each(function(index, element){
+			var _this = $(element);
+			current = index;
+			//var current = _this.css('left').replace('px', ''); // 현재 값은 각 요소 li의 left값
+			pshtimeban.posX = current * pshtimeban.banWidth;// 초기 무빙설정값 : -240, 0, -240			
+			_this.stop().animate({left : pshtimeban.posX}, 500,
+			function() { 
+				pshtimeban.moving = false;	
+			})				
+		});	
+
+		pshtimeban.currentNum = 0;		
+		$('.vslide_ctr ul.paging').find("li").removeClass("on");
+		$('.vslide_ctr ul.paging').find("li").eq(pshtimeban.currentNum).addClass("on");			
+	}	
+}
+
+// 화면 이동 prev 함수
+pshtimeban.timebanrtMoving = function() { 
+	var current = 0;
+	if(0 > $('ul.vslide > li:first').css('left').replace('px','') && pshtimeban.moving == false) { 
+		pshtimeban.moving = true;	
+		$('ul.vslide > li').each(function(index, element){
+			var _this = $(element);
+			var current = _this.css('left').replace('px', ''); // 현재 값은 각 요소 li의 left값
+			pshtimeban.posX = eval(current) + eval(pshtimeban.banWidth);// 초기 무빙설정값 : -240, 0, -240			
+			_this.stop().animate({left : pshtimeban.posX}, 500,
+			function() { 
+				pshtimeban.moving = false;	
+			})				
+		});	
+
+		if (pshtimeban.currentNum < pshtimeban.vslide_length) { 
+			pshtimeban.currentNum = pshtimeban.currentNum - 1;
+			
+			$('.vslide_ctr ul.paging').find("li").removeClass("on");
+			$('.vslide_ctr ul.paging').find("li").eq(pshtimeban.currentNum).addClass("on");			
+		} 		
+	}	
+}
+
+// 화면 이동 next 함수
+pshtimeban.timebanltMoving = function() { 
+	var current = 0;
+	
+	if(0 < $('ul.vslide > li:last').css('left').replace('px','') && pshtimeban.moving == false) { 
+		pshtimeban.moving = true;	
+		$('ul.vslide > li').each(function(index, element){
+			var _this = $(element);
+			var current = _this.css('left').replace('px', ''); // 현재 값은 각 요소 li의 left값
+			pshtimeban.posX = eval(current) - eval(pshtimeban.banWidth);// 초기 무빙설정값 : -240, 0, -240			
+			_this.stop().animate({left : eval(pshtimeban.posX)}, 500, 
+			function() { 
+				pshtimeban.moving = false;	
+			})	
+		});	
+		
+		if (pshtimeban.currentNum < pshtimeban.vslide_length) { 
+			pshtimeban.currentNum = pshtimeban.currentNum + 1;
+			
+			$('.vslide_ctr ul.paging').find("li").removeClass("on");
+			$('.vslide_ctr ul.paging').find("li").eq(pshtimeban.currentNum).addClass("on");			
+		} 
+	}		
+}
+
+//페이징 링크
+pshtimeban.pagelink = function() { 
+	var _this = $(this);
+	var _thispt = _this.parent();
+	var _thisindex = $('.vslide_ctr .paging > li').index(_thispt);// 클릭된 li의 순서 0, 1, 2
+	
+	var pagingli = $('.vslide_ctr .paging > li');
+	
+		if(_thispt.hasClass("on")) { 
+			return false;
+		} else { 
+			pagingli.removeClass("on");
+			_thispt.addClass("on");	
+			
+		}
+	
+	var current = 0; // 현재지점
+	var prev = 0; // 이전지점
+	current = _thisindex;
+	console.log(current);
+	//$('ul.vslide').find("li#shban" + _thisindex).animate({left:0});
+	//$('ul.vslide > li').each(function(index, element){
+		//$(element).animate({left : 480});
+		//_thisindex = index;
+		//pshtimeban.posX = current * pshtimeban.banWidth;// 초기 무빙설정값 : -240, 0, -240	
+		//$('ul.vslide').find("li#shban" + index).css('left',pshtimeban.posX);		
+		//console.log($('ul.vslide').find("li#shban" + _thisindex));
+	//})
+		
+
+}
+
+pshtimeban.init();
+
+
+</script>
+</body>
+</html>

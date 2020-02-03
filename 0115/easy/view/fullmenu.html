@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<script src="script/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">	
+.container {min-width:1280px}
+header {position:relative; background:#000;}
+header .header_inner {position:relative; height:80px; width: 1280px; margin:0 auto}
+header .header_inner .logo {position:absolute; top:50%; left:50px; margin:-17px 0 0 0; z-index: 10}
+header .header_inner nav {position:relative}
+header .header_inner nav .list_gnb {overflow:hidden; position:absolute; top:0; right:50px; z-index: 10;
+	padding-top:40px}
+header .header_inner nav .list_gnb > li {float:left;; width:150px}
+header .header_inner nav .list_gnb > li + li {margin-left:50px}
+header .header_inner nav .list_gnb > li > a {position:relative; display: inline-block; height:40px; color: #fff}
+/*	
+header .header_inner nav .list_gnb > li.on > a:before {content: ""; display:block; border-bottom:1px solid #fff;
+	position:absolute; bottom:0; left: 0; width: 100%}
+*/
+	
+header .header_inner nav .list_gnb > li > a:hover {color:#f2f2f2}
+header .header_inner nav .dp2 {margin-top:30px; overflow: hidden; visibility: hidden; height:0; opacity:0;
+	transition:opacity .5s ease}
+header .header_inner nav .dp2.open {opacity:1}
+header .header_inner nav .dp2 > li {line-height: 1.5; padding:5px 0}
+header .header_inner nav .dp2 > li > a {color:#fff; font-size:.85em }
+header .header_inner nav .dp2 > li > a:hover { color:#d9d9d9}
+
+header .gnb_bg {background:#343746; height:0; position:absolute; top:80px; left:0; right:0; height: 0}
+header .gnb_bar {position:absolute; top:0; left:0; background: #fff; width:100px; height: 20px;
+	transition: width .5s ease;
+	visibility: hidden;
+}
+header .gnb_bar.on {
+	
+animation: leaves .5s ease-in-out;	
+
+}
+	
+@-webkit-keyframes leaves { 
+  0% { 
+	transform: scale(1,1);
+	  opacity:1;
+  } 
+  50% {     
+	transform: scale(.5,1);
+	  opacity:.7;
+  }	
+  100% {     
+	transform: scale(1,1);
+	  opacity:1;
+  }		
+}	
+	
+	.wrap {border:1px solid #f00 }	
+</style>
+</head>
+
+<body>
+<div class="container">
+<header>
+	<div class="header_inner">
+		<div class="logo">
+			<h1><img src="img/ubilogo.png" alt="" /></h1>
+		</div>		
+		<nav>
+			<ul class="list_gnb">
+				<li><a href="#none">솔루션소개</a>
+					<ul class="dp2">
+						<li><a href="">스마트고객관리</a></li>
+						<li><a href="">스마트회원관리</a></li>
+						<li><a href="">고객매출관리</a></li>
+						<li><a href="">고객관리</a></li>
+						<li><a href="">프랜차이즈관리</a></li>
+						<li><a href="">판매재고관리</a></li>
+					</ul>
+				</li>
+				<li class="on"><a href="#none">솔루션구매</a>
+					<ul class="dp2">
+						<li><a href="">솔루션</a></li>
+						<li><a href="">하드웨어</a></li>
+						<li><a href="">개인결제</a></li>
+					</ul>					
+				</li>
+				<li><a href="#none">고객센터</a>
+					<ul class="dp2">
+						<li><a href="">공지사</a></li>
+						<li><a href="">업그레이드소</a></li>
+						<li><a href="">고객이용후기</a></li>
+						<li><a href="">자주하는질문</a></li>
+						<li><a href="">1:1문의</a></li>
+						<li><a href="">견적문의</a></li>
+						<li><a href="">아이디/비밀번호찾기</a></li>
+					</ul>				
+				</li>
+				<li><a href="#none">회사소개</a>
+					<ul class="dp2">
+						<li><a href="">회사소개</a></li>
+						<li><a href="">주요고객사</a></li>
+					</ul>				
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="gnb_bar"></div>
+	<div class="gnb_bg"></div>	
+</header>
+<div class="wrap">
+	 내용 입력 요망
+</div>
+<script>
+	$(function() { 
+		
+		pshGlobalvar = { 
+			gnbbar : $('header .gnb_bar'),
+			gnbbg : $('header .gnb_bg'),
+			navDp2 : $('header .header_inner nav .dp2'),
+			fstLiwh : $('nav .list_gnb > li:first').outerWidth(),
+			fstLiht : $('nav .list_gnb > li:first > a').outerHeight(),
+			fstdp2Liht : $('nav .list_gnb > li:first .dp2 > li:first').outerHeight(),
+			fstLiPositionTop : $('nav .list_gnb > li:first').offset().top,
+			fstLiPositionLeft : $('nav .list_gnb > li:first').offset().left,
+			fstdp2LihtNum : 35
+		}
+		var fullgnbSlideInit = function() {
+			return { 
+				init : function() {
+					// 네비게이션 바 이닛 초기화 ㅋㅋㅋㅋ
+					pshGlobalvar.gnbbar.css(
+					{
+						"width" : "0px",
+						"height" : "0px",
+						"height" : "0px",
+						"top" : pshGlobalvar.fstLiPositionTop + pshGlobalvar.fstLiht - 1,
+						"left" : pshGlobalvar.fstLiPositionLeft
+					});
+					
+					if($('nav .list_gnb > li').hasClass("on")) { 
+						pshGlobalvar.gnbbar.css({
+								"width" : pshGlobalvar.fstLiwh, 
+								"left" : $('nav .list_gnb > li.on').offset().left,
+								"height" : "1px",
+								"visibility" : "visible"
+						});					   					   
+					}				
+				},
+				fullgnbSlide : function() { 
+					
+				},
+				hoverMotion : function(_this) {
+					
+					//호버 이펙트안의 펑션문에서 this값 가져와야함
+					var thispt = _this.parent();					
+					var thisptOffsetLeft = thispt.offset().left;
+					var thisptIndex = thispt.index();
+										
+					//if (pshGlobalvar.gnbbar.width() == 0) { 
+					if (thispt.hasClass("on")) { 
+						//li에 on 이 있고 gnbmovingbar == false 일때
+					} else { 
+						
+						if (pshGlobalvar.gnbbar.width() == 0) {
+							
+							//최초 한번 bar 생성 
+							pshGlobalvar.gnbbar.css({
+									"width" : pshGlobalvar.fstLiwh, 
+									"left" : thisptOffsetLeft,
+									"height" : "1px",
+									"visibility" : "visible"
+							});
+							
+						} else { 
+							$('nav .list_gnb > li').removeClass("on");
+							thispt.addClass("on");
+							gnbmovingbar = true;
+							pshGlobalvar.gnbbar.addClass("on");
+							pshGlobalvar.gnbbar.stop().animate(
+								{"left" : thisptOffsetLeft},
+								{complete : function() { 
+										
+										pshGlobalvar.gnbbar.removeClass("on");
+									}
+								}							
+							)											
+						}	
+					}
+				},
+				mouseleaveMotion : function() { 
+					
+				},
+				gnbhover : function() { 
+					//console.log("pshGlobalvar.navDp2", pshGlobalvar.navDp2);					
+					var s1 = $('.list_gnb > li').eq(0).find('.dp2 > li').length;
+					var s2 = $('.list_gnb > li').eq(1).find('.dp2 > li').length;
+					var s3 = $('.list_gnb > li').eq(2).find('.dp2 > li').length;
+					var s4 = $('.list_gnb > li').eq(3).find('.dp2 > li').length;
+					var maxS = Math.max(s1, s2, s3, s4);
+					
+					pshGlobalvar.navDp2.css('visibility', 'visible').stop().animate(
+						{"height" : pshGlobalvar.fstdp2Liht * maxS}
+					).addClass("open");
+					
+					pshGlobalvar.gnbbg.stop().animate(
+						{
+							"height" : (pshGlobalvar.fstdp2LihtNum * maxS) + 50
+						}
+					);
+				},
+				gnbleave : function() { 
+					//pshGlobalvar.navDp2.slideUp();					
+
+					pshGlobalvar.navDp2.stop().animate(
+						{"height" : "0"}, { 
+							complete : function() { 
+								pshGlobalvar.navDp2.css('visibility', 'visible')
+							}
+						}
+					).removeClass("open");
+
+					pshGlobalvar.gnbbg.stop().animate(
+						{
+							"height" : "0"
+						}
+					);
+				}				
+			}
+		}
+		
+		fullgnbSlideInit = fullgnbSlideInit();	
+		
+		// init	
+		fullgnbSlideInit.init();	
+
+		$(window).resize(function() { 
+			pshGlobalvar = { 
+				/*
+				fstLiwh : $('nav .list_gnb > li:first').outerWidth(),
+				fstLiht : $('nav .list_gnb > li:first > a').outerHeight(),
+				gnbbar : $('header .gnb_bar')
+				*/
+			gnbbar : $('header .gnb_bar'),
+			gnbbg : $('header .gnb_bg'),
+			navDp2 : $('header .header_inner nav .dp2'),
+			fstLiwh : $('nav .list_gnb > li:first').outerWidth(),
+			fstLiht : $('nav .list_gnb > li:first > a').outerHeight(),
+			fstdp2Liht : $('nav .list_gnb > li:first .dp2 > li:first').outerHeight(),
+			fstLiPositionTop : $('nav .list_gnb > li:first').offset().top,
+			fstLiPositionLeft : $('nav .list_gnb > li:first').offset().left	
+				
+			}
+			
+			pshGlobalvar.fstLiPositionLeft = $('nav .list_gnb > li.on').offset().left;
+			
+			pshGlobalvar.gnbbar.css(
+			{
+				"left" : pshGlobalvar.fstLiPositionLeft
+			});			
+		});	
+		
+		
+		$('nav .list_gnb > li > a').hover(
+			function() { 				
+				// mouseover
+				var _this = $(this);				
+				fullgnbSlideInit.hoverMotion(_this);
+				//fullgnbSlideInit.gnbhover();
+								
+			},
+			function() { 
+				// mouserleave	
+				var _this = $(this);	
+				fullgnbSlideInit.mouseleaveMotion(_this);
+				//fullgnbSlideInit.gnbleave();
+			}			
+		);
+		
+		$('nav .list_gnb').hover(
+			function() { 
+				fullgnbSlideInit.gnbhover();
+			},
+			function() { 
+				fullgnbSlideInit.gnbleave();
+			}
+		)
+	});
+</script>
+</div>
+</body>
+</html>

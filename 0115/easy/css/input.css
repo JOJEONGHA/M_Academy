@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+.inputset {display:inline-block; border:1px solid #9d9d9d; background: #fff;
+transition:border-color .6s ease;
+-webkit-transition:border-color .6s ease;
+-moz-transition:border-color .6s ease
+}
+.inputset > input,
+.inputset > select {height: 28px; padding:0 5px 0 5px}
+.inputset > select {appearance:none; -webkit-appearance:none; background:url(../img/selectbg.png) no-repeat right 10px center; padding-right:30px}
+select::-ms-expand {display: none}
+.inputset > input + .datebtn,
+.inputset > input + .schbtn { position: relative; display:inline-block; width: 25px; height: 28px;
+ text-indent:-9999px; vertical-align: middle}
+
+.inputset > input + .datebtn:after,
+.inputset > input + .schbtn:after{content: ""; display:inline-block; width:20px; height: 22px; background:url(../img/inputiconset.png) no-repeat 0 0; background-size: auto 22px; margin:-11px 5px 0 0; position: absolute; top:50%; right: 0}
+
+.inputset > input + .schbtn:after {background-position: -20px 0}
+
+.inputset.ckbox + .inputset.ckbox,
+.inputset.rdo + .inputset.rdo {margin-left:10px}
+.inputset > input + .schbtn {background-position: -20px 0}
+.inputset.on {border:1px solid #2d2721}
+
+.ctrbox_col .inputset.ckbox,
+.ctrbox_col .inputset.rdo{display:block}
+.ctrbox_col .inputset.ckbox + .inputset.ckbox,
+.ctrbox_col .inputset.rdo + .inputset.rdo {margin-top:10px}
+
+.ctrbox_row {overflow:hidden; margin-top:-10px; margin-left: -10px; padding:5px 0}
+.ctrbox_row .inputset.ckbox, 
+.ctrbox_row .inputset.rdo {margin-top: 10px; margin-left: 10px}
+
+.inputset.ckbox {border:none; vertical-align: top; background: transparent}
+.inputset.ckbox label {position:relative; display:inline-block; padding-left:25px; line-height: 20px; height:20px}
+.inputset.ckbox label > .fake_ckbox {display: inline-block; border:2px solid #2f2923; width: 20px; height: 20px; transition: .2s all ease-in; cursor: pointer; vertical-align: middle; margin-right: 7px;
+position:absolute; left:0; top:0}
+.inputset.ckbox.on label > .fake_ckbox {border-width: 0 2px 2px 0; top:-4px;
+transform: rotate(45deg); width: 11px; height: 20px; border-color: #4f9312; margin-left: 7px }
+.inputset.ckbox label > input[type="checkbox"] {position:absolute; left:-9999px}
+
+
+.inputset.rdo {border:none; vertical-align: top}
+.inputset.rdo label:before {content:""; display:inline-block; width: 16px; height: 16px; border-radius: 75%; border:2px solid #666; vertical-align: top; transition: all .5s ease}
+.inputset.rdo label {position:relative; display:inline-block; height: 20px; line-height: 20px; cursor: pointer}
+.inputset.rdo.on label:before {border:2px solid #fff}
+
+
+.inputset.rdo label:after {content:""; display:inline-block; width: 16px; height: 16px; border-radius: 75%; border:2px solid #666; transition: all .5s ease; background: #4f9312; transform: scale(0);
+	position:absolute; top:0; left:0}
+.inputset.rdo.on label:after {transform: scale(1); border:2px solid #4f9312}
+.inputset.rdo label > input[type="radio"] {position:absolute; left:-9999px}
+
+.inputset.rdo.readonly {background:transparent; border:none}
+.inputset.rdo.readonly label:before {background:#d9d9d9; border:2px solid #d9d9d9}
+.inputset.rdo input[type="radio"]:disabled { }
+
+.inputset.readonly {background:#ebebeb; border:1px solid #ebebeb}
+.inputset.readonly input[readonly] {background:transparent}
+
+.input_col {display:flex; webkit-display:flex; align-items: center}
+.input_col .inputset {flex:1}
+.input_col .inputset + .inputset,
+.input_col .inputset + .btn {margin-left:10px}
+.input_col .inputset.ckbox,
+.input_col .inputset.rdo {line-height: 42px}
+
+.inputset.txt {display:inline-table}
+.inputset.txt input {text-align:left; display:table-cell}
+.inputset.txt .txt_sub {display: table-cell; padding: 0 15px 0 0}
+
+.inputset.money {display:inline-table}
+.inputset.money input {text-align:right; display:table-cell}
+.inputset.money .txt_money {display: table-cell; padding: 0 15px 0 0}
+
+.inset {display:inline-block}
+.inset .inputset.rdo label,
+.inset .inputset.ckbox label {height:28px; line-height: 28px; vertical-align: middle}
+.inset .inputset.rdo label:before,
+.inset .inputset.rdo label:after,
+.inset .inputset.ckbox label:before,
+.inset .inputset.ckbox label:after {vertical-align: middle}
+.inset .inputset.rdo label:after,
+.inset .inputset.ckbox label:after{top:50%; margin-top:-8px}
+.inset .inputset label .inputset {width:auto; vertical-align: middle}
+.inset .inputset label .inputset.txt {display:inline-flex}
+.inset .inputset label .inputset input,
+.inset .inputset label .inputset .txt_sub {}
+
+.inset .inputset.ckbox label .fake_ckbox {top:50%; margin-top:-10px}
+.inset .inputset.ckbox.on label > .fake_ckbox {margin-top:-15px}
+
+.inset .inputset label input + .inputset {margin-left:10px}
+.row .inset .inputset label .labeltxt {min-width:90px; display: inline-block}
+
+.inputset textarea {padding:5px}
+
+.inputset.file { }
+.inputset.file label.btn.ctype1 {font-size: 1em}
+.inputset.file input[type="file"] {width:0; height: 0; overflow: hidden; visibility: hidden}
+
+.inputdate {display:flex; -webkit-display:flex}
+.inputdate .inputset {flex:1; -webkit-flex:1; display:flex; -webkit-display:flex}
+.inputdate .inputset input {flex:1; -webkit-flex:1}
+.inputdate .eqeul {line-height: 28px; padding:0 10px}
+
+.inputset.text {border:none; position: relative}
+.inputset.text.modify > input {color:#666}
+.inputset.text.modify:before {
+        border-bottom: 1px solid #666;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
+}
+
+.toggle {display:inline-block; }
+.toggle input[type="checkbox"] {position: absolute; left: -9999px}
+.toggle input[type="checkbox"] + label {width:51px; height: 31px; border:2px solid #e5e5e5; background: #fff; display: block; border-radius: 75px;
+position:relative; transition:all .5s ease}
+.toggle input[type="checkbox"] + label:before {content:""; display:block; width: 26px; height: 26px; border:1px solid #ebebeb; 
+	border-radius: 75%; box-shadow:1px 3px 6px -3px #1b1b1b; position: absolute; top:-1px; left:0; background: #fff; transition:all .5s ease}
+
+.toggle input[type="checkbox"]:checked + label {border:3px solid #ab996b; background: #ab996b}
+.toggle input[type="checkbox"]:checked + label:before {left:18px}
+
+input::-webkit-input-placeholder {font-size: 11px}
+input::-moz-placeholder {font-size: 11px}
+input:-ms-input-placeholder {font-size: 11px}
+input:-moz-placeholder {font-size: 11px}
+
+
+input::-webkit-inner-spin-button,
+input::-webkit-clear-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+
+
+
+
+

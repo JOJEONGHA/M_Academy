@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="popup.js"></script>
+</head>
+<body>
+	
+<style type="text/css">
+#lypop {position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; display: none}
+#lypop .bg {width:100%; height:100%; background:#000; opacity: 0; -ms-filter:alpha(opacity=0); /* IE8 전용 */ filter:alpha(opacity=0); /*IE7 전용 */}
+.lypop_containor {position:absolute; top:50%; left:50%; width:500px; height:500px; margin:-250px 0 0 -250px; border:1px solid #f00; background:#fff; z-index:100}
+.lypop_containor .close {display:block; position:absolute;}
+</style>
+	
+	
+<a href="#lypop" class="lypop" onClick="lypopfunc('600', '300')">테스트</a>
+<div id="lypop">
+	<div class="lypop_containor">
+    	<button type="button" class="close">닫기</button>
+    	<div class="lypop_head">
+        	제목
+        </div>
+        <div class="lypop_cont">
+        	내용asdasdasdasdasdasdasㅇㅁㄴㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ
+        </div>        
+    </div>	
+    <div class="bg"></div>
+</div>	
+
+<a href="javascript: void(0)" onclick="window.open('http://www.naver.com', 'naver', 'width=1000,height=399, left=10, top=10, fullscreen=yes')">
+네이버
+</a>	
+
+<script>
+function popup(url)
+{
+var params  = 'width='+screen.width;
+params += ', height='+screen.height;
+params += ', top=0, left=0';
+params += ', fullscreen=yes';
+console.log(params);
+window.open(url,'idname', params);
+/*	
+newwin=window.open(url,'idname', params);
+
+if (window.focus) {newwin.focus()}
+return false;
+*/
+}
+</script>    
+    
+<a href="javascript: void(0)" onclick="popup('http://ubiplus.co.kr/CertificateManagement/')">My구매정보 바로가기</a>	
+	
+</body>
+</html>

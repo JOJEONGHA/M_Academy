@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<style type="text/css">
+.btnset { }	
+.btn {display:inline-block; padding:10px 20px}
+.btn.submit {background:#f00; color:#fff}
+
+/*  Ripple */
+.ripple {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  position: absolute;
+  opacity: 1;
+}
+.rippleEffect {
+    animation: rippleDrop .6s linear;
+}
+
+@keyframes rippleDrop {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}	
+	
+.btn2 {display:inline-block; padding:10px 20px; overflow: hidden}
+.btn2.submit {background:#f00; color:#fff}
+	
+.ripplecss {position:relative; /* overflow:hidden; */ transform:translate3d(0,0,0);}
+.ripplecss:after{content:""; display:block; position:absolute; width:100%; height:100%; top:0; left:0; pointer-events:none; 
+	background-image:radial-gradient(circle,#000 10%,transparent 10.01%); background-repeat:no-repeat; 
+	background-position:50%; transform:scale(10,10); opacity:0; transition:transform .5s, opacity 1s}
+.ripplecss:active:after{transform:scale(0,0); transform:scale(0,0); opacity:.2; transition:0s/* transform:scale(0,0); opacity:.2; transition:0s */}
+	
+.active { 
+-webkit-animation-delay:0s; 
+-webkit-animation-duration: 200ms; 
+-webkit-animation-iteration-count:1;
+-webkit-animation-name: btn_click;
+
+-moz-animation-delay:0s; 
+-moz-animation-duration: 200ms; 
+-moz-animation-iteration-count:1;
+-moz-animation-name: btn_click;
+
+animation-delay:0s; 
+animation-duration: 200ms; 
+animation-iteration-count:1;
+animation-name: btn_click; }
+
+@keyframes btn_click { 
+  from { 
+    animation-timing-function: ease; 
+	transform: translate(1px,1px);
+	
+  } 
+  to { 
+    animation-timing-function: ease-out;
+	
+  } 
+}	
+	
+</style>	
+</head>
+
+<body>
+	
+<div class="btnset">
+	<a href="" class="btn submit">서브밋버튼</a>	
+</div>	
+	
+<div class="btnset">
+	<a href="#" class="btn2 submit ripplecss">서브밋버튼</a>	
+</div>	
+	
+<script>
+	
+/* 버튼 클릭시 버튼 효과 */
+$(document).on('click', '.btn , .btn2, button', function(){			
+	$(this).addClass('active');
+	$(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+	function() {
+		$(this).removeClass('active');
+	});
+
+	$(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+	function() {
+		$(this).removeClass('active');
+	});		
+});
+	
+$(".btn").on("click", function(e) {
+  e.preventDefault();
+	
+  // 클릭 할때마다 라이플 클래스 삭제
+  $(".ripple").remove();
+
+  // 디폴트 변수
+  var posX = $(this).offset().left,
+      posY = $(this).offset().top,
+      buttonWidth = $(this).outerWidth(),
+      buttonHeight =  $(this).outerHeight();
+  
+  // a태그 안에 라이플 클래스 추가
+  $(this).prepend("<span class='ripple'></span>");
+  
+ /* 
+ 	라이플 원 만들기
+	width가 height보다 크면  width가 height가 되서 크기가 동일시 되고
+	width가 height보다 작으면 height가 width가 되서 크기가 동일시 됨. 원 크기 만들기 위한것.
+ */
+	
+  if(buttonWidth >= buttonHeight) {
+    buttonHeight = buttonWidth;
+  } else {
+    buttonWidth = buttonHeight; 
+  }
+	
+  console.log("buttonWidth==", buttonWidth); 
+  /* 
+  	e.pageX : 가로 좌표값
+	e.pageY : 세로 좌표값
+  */
+  console.log("가로 좌표값==", e.pageX); 
+  console.log("버튼의 가로 위치값==", posX);
+  console.log("버튼의 가로 크기의 반값 ==", buttonWidth / 2);
+  var x = e.pageX - posX - buttonWidth / 2;
+  var y = e.pageY - posY - buttonHeight / 2;
+  
+ 
+  // 라이플 클래스에 값 적용
+  $(".ripple").css({
+    width: buttonWidth,
+    height: buttonHeight,
+    top: y + 'px',
+    left: x + 'px'
+  }).addClass("rippleEffect");
+});	
+</script>	
+</body>
+</html>

@@ -1,0 +1,30 @@
+&nbsp; : html 상에 여백 하나를 추가한다. 단, 한칸정도는 몰라도 이것을 이용해서 띄우는것은 좋지 못하다.
+ex ) <div>5&nbsp;&nbsp;&nbsp;0</div>
+
+label:active 활성화된 라벨을 css에서 부를 때 사용
+
+플러그인 : 복잡한 기능을 가진 UI를 직접만들지 않고 가져와 사용할 수 있는 템플릿
+* 플러그인의 디자인을 바꾸고싶을땐 chrome 검사도구에 어떤 클래스가 해당 부분을 제어하는지 확인한뒤 에 해당 클래스를 css파일에 추가하여 변경한다. 단 custom.css등의 이름으로 따로 파일을 만들고 import 시 가장 아래에 위치시키는것이 좋다. 
+또한 어디에 클래스가 또 사용될지 모르기때문에 div로 클래스를 따로 만들어서 감싸주는것이 안전하다.
+ex) .ssss .checks input[type="checkbox"]{background : red;}
+
+스와이퍼 괜찮은 사이트 
+ https://swiperjs.com/demos/
+
+sco 검색엔진 최적화
+메타 태그를 사용하여 수행할 수 있다.
+
+ex) <meta name = "description" content = "FX시티, FXCITY">
+       <meta name = "keyword" content = "FX시티, FXCITY">
+
+php로 html 파일을 불러올 수 있도록 한다. 단 이거는 개발자들이 하는 영역
+
+./ : 바로 이전폴더부터
+../ : 이전전폴더부터
+/ : 커스텀 경로 부터
+
+줄어드는 이미지를 항상 중앙에 두기위해서 absolute를 통하여 가운데 정렬을 한다.
+
+ transform 이 아니라도 margin 음수를 주므로써 가운데 정렬을 할 수 있다.
+
+

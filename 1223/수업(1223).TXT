@@ -1,0 +1,72 @@
+session 으로 된거 section 으로 바꿔야한다.
+
+section 시메틱 태그. 의미를 가지고 있는 태그, HTML5
+section  > article 구조상
+
+관리자가 등록하는 이미지들은 background 처리 하지말고 img 태그 처리해야한다. 설계에 따라 달라질 수 있다.
+
+???alt 블럭씌우고  자동 영역 잡아줘서 ctrl N 하면 자동으로 해당 레이어 크기만큼의 ctrl n 이 잡힌다. - 포토샵
+ctrl c ctrl n ..??
+
+Q. inline-block 자체를 쓰는 이유??
+- 사라지면 중앙정렬 되야하는경우는 inline block 을 사용해야지 float을 사용하면 없어지면 중앙정렬이 안된다. 예를들어 메뉴가 5개 가 있는데 이걸 inline block 주고 중앙정렬로 배치하면 혹여나 메뉴하나가 사라지더라도 4개가 중앙에 배치된다. 그러나 float 으로 정렬하게 되면 하나가 사라지면 중앙정렬되지 않고 옆으로 기울게 될 것이다. float 을 사용하면 verticle-align 등의 속성을 적용 할 수 없다.
+
+Q. padding margin 차이 ??
+ - 내부의 컨텐츠 에는 padding, 외부는 margin?
+line-height 1 이란
+
+inline-block 을 사용하여 verticle align middle 통하여 이미지옆 글자를 중앙절렬해준다.
+verticle-align 속성에 대한 깊은 이해가 필요하다.
+
+background size 100%!! 일일이 안적어주고 다 표시 해줘야하는 경우는 이렇게 적어주자.
+
+Q. 마퀴툴 줄이는법, 위에 저거
+레이어 블럭으로 씌우기
+블린딩 옵션 ->  color overay 흰색으로 바꿔준다 - 포토샵
+
+figure 태그 , 이미지를 싸는 시메틱 태그
+figcaption 태그, 이미지를 설명하는 시메틱 태그
+<figure>
+   <img src = "img/insta.png" alt = "인스타">
+   <figcaption> 인스타그램 아이콘 </figcaption>
+</figure>
+
+시메틱태그는 페이지의 논리적구성을 표현하기 위한 웹표준에 가까운 방식
+
+ctrl shift c : 마퀴툴로 선택된 영역을 캡쳐
+ctrl c : 선택된 레이어 중 마퀴툴 내부의 영역에 존재하는 부분 캡쳐
+ctrl n : 해당 선택된 영역에 맞는 크기
+
+calc 는 서로다른 두개의 단위를 연산해주는 css 속성!!
+ex ) witdh : calc(100% - 30px);
+
+vw,vh 가변 가로,세로
+ - 화면을 100단위로 쪼개서 1단위로 화면의 크기를 연산하는 가변크기
+
+100% 100vw,100vh 랑은 스크롤에 영향을 받는 유무에 따라 차이가 발생한다.
+
+Q. 반응형 수업???
+
+cms : contents management system, 관리자 페이지
+lms : learning management system, 교육 관리 시스템
+
+<input type="text">
+  <input type="number">
+  <input type="tel">
+  <textarea rows = "5" cols = "80">
+  </textarea>
+  <select>
+    <option>1</option>
+    <option>2</option>
+  </select>
+  <input type ="checkbox"><label>2</label>
+  <input type ="checkbox"><label>46</label>
+
+radio 박스는 id 필요, 
+check 박스는 아니고
+
+label의 for 속성은 input의 id 와 연결 시켜주는 속성이다. 같은 명으로 상요해주면된다.
+label의 name 속성은 radio 버튼의 그룹을 뜻함. 즉, name으로 라디오 그룹을 만들어주고 id와 for로 input을 연결해준다.
+
+<input type = "radio" id = "rd1" name = "123"><label for = "rd1">46</label>
+  <input type = "radio" id = "rd2" name = "123"><label for = "rd2">13</label>

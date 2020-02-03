@@ -1,0 +1,12 @@
+ul, li {margin:0; padding:0;. list-style:none}
+a {text-decoration:none; color:#1b1b1b}
+aside {position:fixed; width:200px; height:100%;
+top:0; left:0; background:#1b1b1b}
+
+aside .nav { }
+aside .nav > li { }
+aside .nav > li > a {color:#fff; display:block; padding:5px}
+aside .dp2 {background:#666; display:none;}
+aside .dp2 > li { }
+aside .dp2 > li > a {color:#fff; font-size:.875em; display:block;
+padding:5px}

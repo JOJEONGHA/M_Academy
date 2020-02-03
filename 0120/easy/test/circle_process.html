@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>무제 문서</title>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+.radial-progress {background:#d6dadc; width:120px; height:120px; border-radius: 50%}
+.radial-progress .circle .mask {
+clip: rect(0px, 120px, 120px, 60px);
+-webkit-backface-visibility: hidden;
+    transition: -webkit-transform 1s;
+    transition: -ms-transform 1s;
+    transition: transform 1s;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: absolute;	
+}
+.radial-progress .circle .mask .fill {
+    clip: rect(0px, 60px, 120px, 0px);
+    background-color: #97a71d;
+	-webkit-backface-visibility: hidden;
+    transition: -webkit-transform 1s;
+    transition: -ms-transform 1s;
+    transition: transform 1s;
+	border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: absolute;			
+}
+
+.radial-progress .inset {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 15px;
+    background-color: #fbfbfb;
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.radial-progress .inset .percent {
+    height: 22px;
+    width: 57px;
+    overflow: hidden;
+    position: absolute;
+    top: 34px;
+    left: 16.5px;
+	text-align:center;
+}
+
+/*
+.radial-progress .circle .mask.full,
+.radial-progress .circle .fill {transform:rotate(10deg) }
+*/
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="radial-progress">
+	<div class="circle">
+    	<div class="mask full">
+    		<div class="fill"></div>
+        </div>
+
+        <div class="mask half">
+        	<div class="fill"></div>
+            <!-- <div class="fill fix"></div> -->
+        </div>
+
+        <div class="inset">
+			<div class="percent">
+            	<span class="number"></span>
+            </div>   
+        </div>
+    </div>
+    
+    <div class="clock">
+    	0
+        <span class="minute">3</span>
+        :
+        <span class="second">
+            <span>0</span>
+            <span>0</span>
+        </span>
+    </div>
+</div>
+<script>
+
+/*
+var transform_style = ['-webkit-transform','-moz-transform','transform'];
+window.randomize = function() { 
+	var rotation = Math.floor(Math.random() * 360);
+	for(i in transform_styles) {
+		$('.circle .fill').css(transform_styles[i],
+		'rotate(' + rotation + 'deg)');
+	}
+}
+
+
+
+$('head style[type="text/css"]').attr('type', 'text/less');
+less.refreshStyles();
+*/
+
+$(function(){
+	startTime();
+	var count = 0;
+	var numcount = 0;
+	var maxcount = 180;
+	var timer;
+	
+	/* 3분 타임 체크 */
+	var time = 180;
+	var sec2 = 10;
+	var sec1 = 60;
+	var minute = (time/60) -1;
+	
+	
+	function timechk () { 
+		count ++
+		//console.log(count);
+		var degcount = count * 1.8; 
+		$('.mask.full').css("transform","rotate(" + degcount + "deg");
+		$('.mask.full').find(".fill").css("transform","rotate(" + degcount + "deg");
+		
+		
+		$('.mask.half').find(".fill").css("transform","rotate(" + degcount + "deg");
+		//$('.mask.half').find(".fill.fix").css("transform","rotate(" + (degcount * 2) + "deg");
+		$('.inset .percent').find(".number").text(count + "%");
+		
+		if(degcount == maxcount) {	
+			clearInterval(timer);
+		}		
+	}
+
+	
+	
+	function startTime() {
+		
+		timer = setInterval(function() { 
+			timechk ();
+		}, 1800);
+		clock = setInterval(function() { 
+			timer_ck ();
+		}, 1000);		
+	}
+
+	function timer_ck() { 
+		if(time == 180) { 
+			$('.minute').text(parseInt(minute));
+		};
+		time --;
+		sec2 --;
+		sec1 --;
+		console.log(sec2);
+		if(sec2 == 0) { 
+			sec2 = 10;
+			$('.second').find("span:last-child").text(0);	
+		} else if(sec2 < 10) { 
+			$('.second').find("span:last-child").text(parseInt(sec2));
+		}
+		
+		if(sec1 == 0) { 
+			sec1 = 60;	
+		} else if(sec1 == 60) { 
+			$('.second').find("span:first-child").text(0);
+		} else if(sec1 < 60) { 
+			$('.second').find("span:first-child").text(parseInt(sec1/10));
+		}
+		
+		console.log("time ==", time);
+		console.log("minute ==", minute);
+		
+		if(time < minute * 60) { 
+			minute--;
+			$('.minute').text(minute);
+		}
+		
+		if(time == 0) { 
+			stopTime();
+		}
+	}
+	
+	
+	function stopTime() { 
+		clearInterval(clock);
+	}
+	
+	
+	/*
+	window.randomize = function() {
+		$('.radial-progress').attr('data-progress', Math.floor(Math.random() * 100));
+	}
+	setTimeout(window.randomize, 200);
+	$('.radial-progress').click(window.randomize);
+	*/
+})
+
+
+
+</script>
+
+
+</body>
+</html>

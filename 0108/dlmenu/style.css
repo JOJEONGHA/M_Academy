@@ -1,0 +1,12 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: #000;}
+
+.tab {}
+.tab .dlist{ overflow: hidden;}
+.tab .dlist dt{ float: left;}
+.tab .dlist dt > a{display: block; padding: 10px; background: #ccc;}
+.tab .dlist dt.on > a{background: #000; color: #fff;}
+.tab .dlist dd{float: right; width: 100%; margin: 45px 0 0 -100%; display: none;}
+.tab .dlist dd:first-of-type{display: block;}
+
