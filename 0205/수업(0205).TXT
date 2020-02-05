@@ -1,0 +1,53 @@
+html  : tag 구조
+css : 상속(double class 활용)
+jquery : function
+
+js는 c와 다르게 인자가 부족하더라도 undefined 로 입력되지 오류가 발생하지 않는다.
+
+function func(arg1 ,arg2) {
+    console.log(arg1, arg2);
+}
+
+func(); //undefined
+func(1); // 1 undefined
+func(1,2); // 1 2
+func(1,2,3); // 1 2
+------------------------------------------------------------
+클로져 : 내부에 있는 함수를 외부에 끌어다가 다시 실행시키는 방법
+
+var testf = function(){
+	return {
+		plus : function(left, right){
+		}
+		minus : function(left,right){
+		}
+	}
+}
+
+testf = testf(); // new testf() 의 new 가 생략된 것이다. 
+
+사용할 때 >> testf.plus(1,2)
+
+또는
+
+function cal(mode){
+    var funcs = {
+        'plus' : function(left, right){return left + right},
+        'minus' : function(left, right){return left - right}
+    }
+    return funcs[mode]; // 리턴 값으로 함수를 사용
+}
+이런식으로 사용할 수 있다 >> cal('plus')(2,1); 
+
+
+ 
+< jquerty >
+애니메이션 속성이 있으면 >> is(":animated") 
+애니메이션 속성이 없으면 >> is(":not(:animated)") 
+
+데이터 피커같이 누르면 나오고 사라지는거는 class 를 찾기 힘들다. 따라서 이럴때는 chrome 의 Source 창을 열어서 디버깅 찍고 달력이 뜰때 딱 걸리는 위치를 찾아낸다. 그래서 그위치에서 class 를 보면된다. 그리고 디버깅 걸린 상태에서는 Elements 요소를 정지된 상태에서 확인해 볼 수 있다!!!! 이대  css 를 확인해보면 된다.  이때 주의 사항이 import 하는 위치는 제일 마지막에 사용해야한다!!!!!! 꼭!!! 혹시모를 충돌이 발생할 수 있다. 또한 class 를 위에 있는 고유의 클래스를 앞에 붙여서 하면 명확해진다,
+.datepicker .date.calender{color : red};
+이때 상위 클래스에 datepicker라는 클래스가 존재해서 앞에다가 이렇게 붙여준다. 그러면 좀더 명확하게 해당 부분만 수정되는 결과를 기대 할 수 있다.
+
+undefined 조차 값이다. a === undefined 이런식으로도 사용할 수 있다!!
+
