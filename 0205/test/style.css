@@ -1,0 +1,4 @@
+.testRadio input[type="radio"]{display: none;}
+.testRadio input[type="radio"] + label{display: inline-block;}
+.testRadio input[type="radio"] + label::before{display: block; width: 1em; height: 1em; border: 1px solid red; content: ""; float: left;}
+.testRadio input[type="radio"]:checked + label::before{background: #f00;}
