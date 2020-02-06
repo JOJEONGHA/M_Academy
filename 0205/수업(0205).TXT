@@ -51,7 +51,7 @@ function cal(mode){
 
 undefined 조차 값이다. a === undefined 이런식으로도 사용할 수 있다!!
 
-filter matrix 는 인터넷에 쳐보면 나온다.!! (svg)
+filter matrix 는 인터넷에 쳐보면 나온다.!! (svg) = http://andresgalante.com/RGBAtoFeColorMatrix/
 복잡한 도형은 일러스트로 그려서 벡터 코드를 붙이면 된다. (svg)
 svg 애니매이션
 
